@@ -31,7 +31,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_REGISTRY_USERNAME }}/lesterbarahona.com
+          images: ${{ secrets.DOCKER_REGISTRY_USERNAME }}/lbarahona-blog
           tags: |
             type=sha,enable=true,format=long,prefix=,suffix=
             type=raw,enable=true,value=latest
