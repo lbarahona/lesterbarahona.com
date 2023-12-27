@@ -87,4 +87,4 @@ jobs:
           sed -i "s/__S3_UPLOADS_SECRET__/${{ secrets.WP_S3_UPLOADS_SECRET }}/g" .kube/wp-production-values.yaml || true
 
       - name: Deploy to K8S
-        run: helm upgrade --install lbarahona-blog 10up/wordpress -f .kube/wp-production-values.yaml --set wordpress.image.tag=${{ github.sha }} -n wordpress
+        run: helm upgrade --install lbarahona-blog 10up/wordpress -f .kube/wp-production-values.yaml --set wordpress.image.tag=${{ github.sha }} -n lbarahona-blog
