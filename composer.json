@@ -23,6 +23,7 @@
   },
   "require": {
     "wpackagist-theme/astra":"4.6.5",
+    "wpackagist-plugin/astra-sites":"4.0.13",
 		"wpackagist-plugin/stream": "3.10.0",
     "wpackagist-plugin/redis-cache": "2.5.0",
     "wpackagist-plugin/wordpress-importer": "0.8.1",

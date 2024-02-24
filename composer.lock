@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "804ab21919b6348535cc0308a4581c6c",
+    "content-hash": "76e5c37a3e285010e5ccf500455fba62",
     "packages": [
         {
             "name": "composer/installers",
@@ -150,6 +150,24 @@
                 }
             ],
             "time": "2022-08-20T06:45:11+00:00"
+        },
+        {
+            "name": "wpackagist-plugin/astra-sites",
+            "version": "4.0.13",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/astra-sites/",
+                "reference": "tags/4.0.13"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/astra-sites.4.0.13.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/astra-sites/"
         },
         {
             "name": "wpackagist-plugin/code-syntax-block",
