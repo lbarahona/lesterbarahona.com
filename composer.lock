@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b862cf3ce7d51056d9fdec79c2eefee",
+    "content-hash": "804ab21919b6348535cc0308a4581c6c",
     "packages": [
         {
             "name": "composer/installers",
@@ -278,22 +278,22 @@
             "homepage": "https://wordpress.org/plugins/wpforms-lite/"
         },
         {
-            "name": "wpackagist-theme/raft",
-            "version": "1.0.6",
+            "name": "wpackagist-theme/astra",
+            "version": "4.6.5",
             "source": {
                 "type": "svn",
-                "url": "https://themes.svn.wordpress.org/raft/",
-                "reference": "1.0.6"
+                "url": "https://themes.svn.wordpress.org/astra/",
+                "reference": "4.6.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/theme/raft.1.0.6.zip"
+                "url": "https://downloads.wordpress.org/theme/astra.4.6.5.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
             },
             "type": "wordpress-theme",
-            "homepage": "https://wordpress.org/themes/raft/"
+            "homepage": "https://wordpress.org/themes/astra/"
         }
     ],
     "packages-dev": [],
@@ -307,5 +307,5 @@
     "platform-overrides": {
         "php": "8.2"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.2.0"
 }

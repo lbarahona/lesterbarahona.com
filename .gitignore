@@ -5,6 +5,8 @@ wp-content/object-cache.php
 object-cache.php
 wp-content/themes/raft/
 themes/raft/
+wp-content/themes/astra/
+themes/astra/
 
 # Plugins managed with Composer.  Delete this section once all are managed by composer
 # and convert to ignoring all of wp-content/plugins and excluding custom plugins
