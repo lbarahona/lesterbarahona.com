@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac7bbcf9b2e6d39b4bf06c640d1b7bc2",
+    "content-hash": "fd0fb64e708ca1460e790af7a84e7d83",
     "packages": [
         {
             "name": "composer/installers",
@@ -168,6 +168,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/astra-sites/"
+        },
+        {
+            "name": "wpackagist-plugin/cloudflare",
+            "version": "4.12.6",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/cloudflare/",
+                "reference": "tags/4.12.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/cloudflare.4.12.6.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/cloudflare/"
         },
         {
             "name": "wpackagist-plugin/code-syntax-block",
