@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Redesign Preview - Lester Barahona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            --color-bg: #0a0a0a;
+            --color-bg-secondary: #111111;
+            --color-text: #d4d4d4;
+            --color-text-muted: #737373;
+            --color-text-secondary: #a3a3a3;
+            --color-primary: #f59e0b;
+            --color-primary-hover: #fbbf24;
+            --color-accent: #22d3ee;
+            --color-border: #262626;
+            --font-display: 'Space Mono', monospace;
+            --font-sans: 'Instrument Sans', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .comparison { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            min-height: 100vh;
+        }
+        
+        .comparison > div {
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .comparison > div::before {
+            content: attr(data-label);
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding: 0.5rem 1rem;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+        }
+        
+        .old-design {
+            background: #0f0f0f;
+            border-right: 1px solid var(--color-border);
+        }
+        
+        .old-design::before { color: #ef4444; }
+        .new-design::before { color: var(--color-primary); }
+        
+        /* ====== OLD DESIGN STYLES ====== */
+        .old-design .hero {
+            padding: 4rem 2rem;
+        }
+        
+        .old-design .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 1rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: #3b82f6;
+            margin-bottom: 1.5rem;
+            font-family: Inter, sans-serif;
+        }
+        
+        .old-design .hero-title {
+            font-family: Inter, sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+        
+        .old-design .hero-subtitle {
+            font-family: Inter, sans-serif;
+            color: #a3a3a3;
+            margin-bottom: 2rem;
+        }
+        
+        .old-design .hero-stats {
+            display: flex;
+            gap: 2rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid #2a2a2a;
+            border-bottom: 1px solid #2a2a2a;
+            margin-bottom: 2rem;
+        }
+        
+        .old-design .hero-stat__number {
+            font-family: Inter, sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        
+        .old-design .hero-stat__label {
+            font-family: Inter, sans-serif;
+            font-size: 0.85rem;
+            color: #888;
+            text-transform: uppercase;
+        }
+        
+        .old-design .btn--primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #3b82f6;
+            color: #fff;
+            font-family: Inter, sans-serif;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+        
+        .old-design .btn--outline {
+            display: inline-flex;
+            background: transparent;
+            color: #e5e5e5;
+            font-family: Inter, sans-serif;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+        
+        /* ====== NEW DESIGN STYLES ====== */
+        .new-design .hero {
+            padding: 4rem 2rem;
+            position: relative;
+        }
+        
+        .new-design .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px),
+                radial-gradient(ellipse 60% 40% at 70% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        
+        .new-design .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: transparent;
+            border: 1px solid var(--color-primary);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-primary);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .new-design .hero-badge::before {
+            content: '>';
+            animation: blink 1s step-end infinite;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .new-design .hero-title {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+        
+        .new-design .hero-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--color-primary);
+            margin-top: 1rem;
+        }
+        
+        .new-design .hero-subtitle {
+            font-family: var(--font-sans);
+            color: var(--color-text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+        
+        .new-design .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .new-design .hero-stat {
+            position: relative;
+            padding-left: 1rem;
+        }
+        
+        .new-design .hero-stat::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-primary);
+            opacity: 0.5;
+        }
+        
+        .new-design .hero-stat:first-child { padding-left: 0; }
+        .new-design .hero-stat:first-child::before { display: none; }
+        
+        .new-design .hero-stat__number {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+        }
+        
+        .new-design .hero-stat__label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+        
+        .new-design .btn--primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-primary);
+            color: #000;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            margin-right: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .new-design .btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+        }
+        
+        .new-design .btn--outline {
+            display: inline-flex;
+            background: transparent;
+            color: var(--color-text);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 1rem 2rem;
+            border: 1px solid var(--color-border);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .new-design .btn--outline:hover {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+        
+        /* ====== COMPANIES GRID COMPARISON ====== */
+        .companies-section {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .section-title {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        /* OLD: Grid with left-aligned last row */
+        .old-design .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        
+        .old-design .company-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            background: #1a1a1a;
+            border-radius: 8px;
+            height: 60px;
+            color: #666;
+            font-family: Inter, sans-serif;
+            font-size: 0.8rem;
+        }
+        
+        /* NEW: Flexbox with centered last row */
+        .new-design .companies-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+        
+        .new-design .company-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: calc(33.333% - 1rem);
+            min-width: 140px;
+            padding: 1rem;
+            background: #141414;
+            height: 60px;
+            color: var(--color-primary);
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .new-design .company-logo:hover {
+            border-color: var(--color-primary);
+        }
+        
+        @media (max-width: 900px) {
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+            .old-design {
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="comparison">
+        <!-- OLD DESIGN -->
+        <div class="old-design" data-label="Before (Generic AI)">
+            <section class="hero">
+                <div class="hero-badge">
+                    <span>🚀</span>
+                    <span>Available for consulting</span>
+                </div>
+                <h1 class="hero-title">I build infrastructure<br>that just works.</h1>
+                <p class="hero-subtitle">Senior Site Reliability Engineer with 20 years of experience. I transform complex systems into reliable, automated infrastructure.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat__number">20+</span>
+                        <span class="hero-stat__label">Years Experience</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat__number">99.99%</span>
+                        <span class="hero-stat__label">Uptime Target</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat__number">∞</span>
+                        <span class="hero-stat__label">Automation</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn--primary">Let's Work Together →</a>
+                    <a href="#" class="btn btn--outline">Learn More</a>
+                </div>
+            </section>
+            
+            <section class="companies-section">
+                <h3 class="section-title" style="font-family: Inter, sans-serif; color: #888;">Trusted by Industry Leaders</h3>
+                <div class="companies-grid">
+                    <div class="company-logo">Microsoft</div>
+                    <div class="company-logo">Starbucks</div>
+                    <div class="company-logo">Meta</div>
+                    <div class="company-logo">Fueled</div>
+                    <div class="company-logo">Pinterest</div>
+                    <div class="company-logo">InvestorPlace</div>
+                    <div class="company-logo">Sandals</div>
+                    <div class="company-logo">Beaches</div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.75rem; color: #ef4444; font-family: monospace;">↑ Last row left-aligned ↑</p>
+            </section>
+        </div>
+        
+        <!-- NEW DESIGN -->
+        <div class="new-design" data-label="After (Industrial Terminal)">
+            <section class="hero">
+                <div class="hero-badge">AVAILABLE FOR CONSULTING</div>
+                <h1 class="hero-title">I build infrastructure<br>that just works.</h1>
+                <p class="hero-subtitle">Senior Site Reliability Engineer with 20 years of experience. I transform complex systems into reliable, automated infrastructure.</p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat__number">20+</span>
+                        <span class="hero-stat__label">Years Experience</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat__number">99.99%</span>
+                        <span class="hero-stat__label">Uptime Target</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat__number">∞</span>
+                        <span class="hero-stat__label">Automation</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#" class="btn btn--primary">Let's Work Together →</a>
+                    <a href="#" class="btn btn--outline">Learn More</a>
+                </div>
+            </section>
+            
+            <section class="companies-section">
+                <h3 class="section-title">Trusted by Industry Leaders</h3>
+                <div class="companies-grid">
+                    <div class="company-logo">Microsoft</div>
+                    <div class="company-logo">Starbucks</div>
+                    <div class="company-logo">Meta</div>
+                    <div class="company-logo">Fueled</div>
+                    <div class="company-logo">Pinterest</div>
+                    <div class="company-logo">InvestorPlace</div>
+                    <div class="company-logo">Sandals</div>
+                    <div class="company-logo">Beaches</div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.75rem; color: var(--color-primary); font-family: monospace;">↑ Last row centered ↑</p>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
