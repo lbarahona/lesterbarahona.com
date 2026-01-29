@@ -283,3 +283,44 @@ function lester_developer_meta_tags() {
     <?php
 }
 add_action('wp_head', 'lester_developer_meta_tags');
+
+/**
+ * Customizer settings for hero section
+ */
+function lester_developer_customize_register($wp_customize) {
+    // Hero Section
+    $wp_customize->add_section('hero_section', array(
+        'title'    => __('Hero Section', 'lester-developer'),
+        'priority' => 30,
+    ));
+
+    // Hero Visual Style
+    $wp_customize->add_setting('hero_visual_style', array(
+        'default'           => 'image',
+        'sanitize_callback' => 'sanitize_text_field',
+    ));
+
+    $wp_customize->add_control('hero_visual_style', array(
+        'label'    => __('Hero Visual Style', 'lester-developer'),
+        'section'  => 'hero_section',
+        'type'     => 'select',
+        'choices'  => array(
+            'image'    => __('Image/Photo', 'lester-developer'),
+            'terminal' => __('Terminal/Code', 'lester-developer'),
+        ),
+    ));
+
+    // Hero Image
+    $wp_customize->add_setting('hero_image', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'hero_image', array(
+        'label'    => __('Hero Image', 'lester-developer'),
+        'section'  => 'hero_section',
+        'settings' => 'hero_image',
+        'description' => __('Upload a professional photo or abstract image. Recommended size: 500x500px or larger.', 'lester-developer'),
+    )));
+}
+add_action('customize_register', 'lester_developer_customize_register');

@@ -6,12 +6,15 @@
  */
 
 get_header();
+
+// Hero visual option: 'terminal', 'image', or 'both'
+$hero_visual = get_theme_mod('hero_visual_style', 'image'); // Changed default to 'image'
 ?>
 
 <main id="primary" class="site-main">
     <?php if (is_front_page() && !is_paged()) : ?>
         <!-- Hero Section -->
-        <section class="hero">
+        <section class="hero <?php echo $hero_visual === 'image' ? 'hero--with-image' : ''; ?>">
             <div class="hero-bg-grid"></div>
             <div class="container">
                 <div class="hero-content">
@@ -55,6 +58,9 @@ get_header();
                         </a>
                     </div>
                 </div>
+
+                <?php if ($hero_visual === 'terminal') : ?>
+                <!-- Terminal Visual -->
                 <div class="hero-visual">
                     <div class="hero-terminal">
                         <div class="terminal-header">
@@ -76,6 +82,73 @@ get_header();
                         </div>
                     </div>
                 </div>
+                <?php else : ?>
+                <!-- Hero Image -->
+                <div class="hero-visual hero-visual--image">
+                    <?php 
+                    $hero_image = get_theme_mod('hero_image');
+                    if ($hero_image) : 
+                    ?>
+                        <img src="<?php echo esc_url($hero_image); ?>" alt="Lester Barahona" class="hero-image">
+                    <?php else : ?>
+                        <!-- Placeholder with abstract tech visualization -->
+                        <div class="hero-image-placeholder">
+                            <div class="hero-image-placeholder__content">
+                                <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Abstract infrastructure/cloud visualization -->
+                                    <defs>
+                                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+                                            <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.8" />
+                                        </linearGradient>
+                                        <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
+                                            <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.3" />
+                                        </linearGradient>
+                                    </defs>
+                                    
+                                    <!-- Background circles -->
+                                    <circle cx="200" cy="200" r="180" stroke="url(#grad2)" stroke-width="1" fill="none" opacity="0.5"/>
+                                    <circle cx="200" cy="200" r="140" stroke="url(#grad2)" stroke-width="1" fill="none" opacity="0.5"/>
+                                    <circle cx="200" cy="200" r="100" stroke="url(#grad2)" stroke-width="1" fill="none" opacity="0.5"/>
+                                    
+                                    <!-- Central server/cloud icon -->
+                                    <rect x="160" y="160" width="80" height="80" rx="8" fill="url(#grad1)" opacity="0.9"/>
+                                    <rect x="175" y="180" width="50" height="6" rx="3" fill="#fff" opacity="0.8"/>
+                                    <rect x="175" y="195" width="35" height="6" rx="3" fill="#fff" opacity="0.6"/>
+                                    <rect x="175" y="210" width="45" height="6" rx="3" fill="#fff" opacity="0.4"/>
+                                    
+                                    <!-- Connection nodes -->
+                                    <circle cx="100" cy="120" r="20" fill="url(#grad1)" opacity="0.7"/>
+                                    <circle cx="300" cy="120" r="20" fill="url(#grad1)" opacity="0.7"/>
+                                    <circle cx="100" cy="280" r="20" fill="url(#grad1)" opacity="0.7"/>
+                                    <circle cx="300" cy="280" r="20" fill="url(#grad1)" opacity="0.7"/>
+                                    <circle cx="200" cy="60" r="15" fill="url(#grad1)" opacity="0.6"/>
+                                    <circle cx="200" cy="340" r="15" fill="url(#grad1)" opacity="0.6"/>
+                                    <circle cx="60" cy="200" r="15" fill="url(#grad1)" opacity="0.6"/>
+                                    <circle cx="340" cy="200" r="15" fill="url(#grad1)" opacity="0.6"/>
+                                    
+                                    <!-- Connection lines -->
+                                    <line x1="120" y1="130" x2="160" y2="170" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
+                                    <line x1="280" y1="130" x2="240" y2="170" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
+                                    <line x1="120" y1="270" x2="160" y2="230" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
+                                    <line x1="280" y1="270" x2="240" y2="230" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
+                                    <line x1="200" y1="75" x2="200" y2="160" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
+                                    <line x1="200" y1="240" x2="200" y2="325" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
+                                    <line x1="75" y1="200" x2="160" y2="200" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
+                                    <line x1="240" y1="200" x2="325" y2="200" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
+                                    
+                                    <!-- Animated pulse circles (CSS will animate) -->
+                                    <circle cx="200" cy="200" r="60" stroke="url(#grad1)" stroke-width="2" fill="none" class="pulse-ring"/>
+                                </svg>
+                                <p class="hero-image-placeholder__text">
+                                    <span class="upload-hint">Add your photo in Customizer</span>
+                                </p>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <?php endif; ?>
             </div>
         </section>
 
