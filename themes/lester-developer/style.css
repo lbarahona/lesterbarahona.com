@@ -838,14 +838,24 @@ p {
   font-weight: 700;
   margin-bottom: var(--space-sm);
   line-height: 1.4;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
-.post-card__title a {
-  color: #fff;
+.post-card__title a,
+.post-card .post-card__title a,
+article.post-card h2.post-card__title a {
+  color: #fff !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  text-decoration: none;
 }
 
-.post-card__title a:hover {
-  color: var(--color-primary);
+.post-card__title a:hover,
+.post-card .post-card__title a:hover {
+  color: var(--color-primary) !important;
 }
 
 .post-card__excerpt {
