@@ -312,10 +312,21 @@ p {
 }
 
 .hero-title__highlight {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #a855f7 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+}
+
+.hero-title__highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  right: 0;
+  height: 0.15em;
+  background: var(--color-primary);
+  opacity: 0.4;
+  border-radius: 2px;
 }
 
 .hero-subtitle {
