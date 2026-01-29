@@ -12,22 +12,126 @@ get_header();
     <?php if (is_front_page() && !is_paged()) : ?>
         <!-- Hero Section -->
         <section class="hero">
+            <div class="hero-bg-grid"></div>
             <div class="container">
                 <div class="hero-content">
-                    <p class="hero-greeting">Hi, I'm</p>
-                    <h1 class="hero-title">Lester Barahona</h1>
+                    <div class="hero-badge">
+                        <span class="hero-badge__icon">🚀</span>
+                        <span>Available for consulting</span>
+                    </div>
+                    <h1 class="hero-title">
+                        I build infrastructure<br>
+                        <span class="hero-title__highlight">that just works.</span>
+                    </h1>
                     <p class="hero-subtitle">
-                        Site Reliability Engineer with 20 years of experience building and scaling high-availability systems. 
-                        I make complex infrastructure simple, reliable, and automated.
+                        Senior Site Reliability Engineer with 20 years of experience. I transform complex systems 
+                        into reliable, automated infrastructure that scales effortlessly and lets your team focus 
+                        on what matters.
                     </p>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat__number">20+</span>
+                            <span class="hero-stat__label">Years Experience</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat__number">99.99%</span>
+                            <span class="hero-stat__label">Uptime Target</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat__number">∞</span>
+                            <span class="hero-stat__label">Automation</span>
+                        </div>
+                    </div>
                     <div class="hero-cta">
-                        <a href="<?php echo esc_url(home_url('/about/')); ?>" class="btn btn--primary">About Me</a>
-                        <a href="https://github.com/lbarahona" class="btn btn--outline" target="_blank" rel="noopener">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--primary btn--large">
+                            Let's Work Together
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
                             </svg>
-                            GitHub
                         </a>
+                        <a href="<?php echo esc_url(home_url('/about/')); ?>" class="btn btn--outline btn--large">
+                            Learn More About Me
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-terminal">
+                        <div class="terminal-header">
+                            <span class="terminal-dot terminal-dot--red"></span>
+                            <span class="terminal-dot terminal-dot--yellow"></span>
+                            <span class="terminal-dot terminal-dot--green"></span>
+                            <span class="terminal-title">infrastructure.yaml</span>
+                        </div>
+                        <div class="terminal-body">
+                            <pre><code><span class="yaml-key">apiVersion:</span> sre/v1
+<span class="yaml-key">kind:</span> Infrastructure
+<span class="yaml-key">metadata:</span>
+  <span class="yaml-key">name:</span> <span class="yaml-value">production</span>
+<span class="yaml-key">spec:</span>
+  <span class="yaml-key">reliability:</span> <span class="yaml-value">99.99%</span>
+  <span class="yaml-key">automation:</span> <span class="yaml-value">maximum</span>
+  <span class="yaml-key">complexity:</span> <span class="yaml-value">hidden</span>
+  <span class="yaml-key">status:</span> <span class="yaml-success">✓ Running</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack Section -->
+        <section class="tech-stack">
+            <div class="container">
+                <p class="tech-stack__label">Technologies I work with</p>
+                <div class="tech-stack__icons">
+                    <div class="tech-icon" title="Kubernetes">
+                        <svg viewBox="0 0 32 32" width="32" height="32"><path fill="currentColor" d="M15.9.5c-.4 0-.8.2-1.1.4L3.1 7.2c-.7.4-1.1 1.1-1.1 1.9v13.3c0 .8.4 1.5 1.1 1.9l11.7 6.3c.7.4 1.5.4 2.2 0l11.7-6.3c.7-.4 1.1-1.1 1.1-1.9V9.1c0-.8-.4-1.5-1.1-1.9L17 .9c-.3-.3-.7-.4-1.1-.4z"/></svg>
+                    </div>
+                    <div class="tech-icon" title="Terraform">
+                        <svg viewBox="0 0 32 32" width="32" height="32"><path fill="currentColor" d="M21.3 11.2v9.5l8.2-4.7v-9.5l-8.2 4.7zm-10.3 5.9v9.5l8.2 4.7v-9.5l-8.2-4.7zm0-10.6v9.5l8.2 4.7v-9.5l-8.2-4.7zm-8.5 4.9v9.5l8.2 4.7v-9.5l-8.2-4.7z"/></svg>
+                    </div>
+                    <div class="tech-icon" title="AWS">
+                        <svg viewBox="0 0 32 32" width="32" height="32"><path fill="currentColor" d="M9.2 13.8l-1.4 4.6h2.9l-1.5-4.6zm14.4-1.3c-.7 0-1.2.2-1.6.7-.4.4-.6 1-.6 1.8s.2 1.4.6 1.8c.4.4.9.7 1.6.7.7 0 1.2-.2 1.6-.7.4-.4.6-1 .6-1.8s-.2-1.4-.6-1.8c-.4-.5-.9-.7-1.6-.7z"/><path fill="currentColor" d="M16 2C8.3 2 2 8.3 2 16s6.3 14 14 14 14-6.3 14-14S23.7 2 16 2zm-5.3 18.8H8.5l-.5-1.6H4.9l-.5 1.6H2.3l3.1-9h2.3l3 9zm8.1-5c0 1.4-.4 2.5-1.1 3.3-.7.8-1.8 1.2-3.1 1.2-1.3 0-2.3-.4-3.1-1.2-.8-.8-1.1-1.9-1.1-3.3s.4-2.5 1.1-3.3c.8-.8 1.8-1.2 3.1-1.2 1.3 0 2.3.4 3.1 1.2.7.8 1.1 1.9 1.1 3.3zm8.8 2.4c0 .9-.3 1.6-1 2.1-.7.5-1.6.8-2.8.8-1.1 0-2-.2-2.8-.5v-1.8c.9.5 1.9.7 2.8.7.6 0 1-.1 1.3-.3.3-.2.4-.5.4-.8 0-.2-.1-.4-.2-.6-.1-.2-.3-.3-.6-.5-.3-.2-.7-.4-1.2-.6-.8-.3-1.4-.7-1.8-1.1-.4-.5-.6-1-.6-1.7 0-.8.3-1.5.9-2 .6-.5 1.4-.7 2.5-.7.5 0 1 .1 1.5.2.5.1.9.2 1.3.4v1.8c-.8-.5-1.7-.7-2.6-.7-.5 0-.8.1-1.1.3-.3.2-.4.4-.4.8 0 .3.1.5.4.7.3.2.7.5 1.4.8.8.3 1.4.7 1.8 1.1.4.6.6 1.1.6 1.6z"/></svg>
+                    </div>
+                    <div class="tech-icon" title="Docker">
+                        <svg viewBox="0 0 32 32" width="32" height="32"><path fill="currentColor" d="M31.5 13.7c-.2-.2-1.2-.9-3.5-1 0-.7-.2-2.4-1.6-3.5l-.6-.5-.5.5c-.6.7-1.1 1.6-1.2 2.4-.2 1.1 0 2.2.6 3.1-1.1.6-2.8.8-3.3.8H.8c-.5 0-.8.4-.8.8 0 2 .3 4 1.1 5.8.8 1.7 2 3 3.5 3.8 1.8.9 4.8 1.5 8.2 1.5 7.3 0 13.4-3.4 16.1-10.7 1.9 0 3-.4 3.7-1.5l.3-.5-.4-.5c-.4-.3-.8-.5-1-.6zM3.9 15.5h3.1v2.9H3.9v-2.9zm4 0h3.1v2.9H7.9v-2.9zm0-3.7h3.1v2.9H7.9v-2.9zm3.9 3.7h3.1v2.9h-3.1v-2.9zm0-3.7h3.1v2.9h-3.1v-2.9zm-7.9 3.7h3.1v2.9H3.9v-2.9zm11.9 0h3.1v2.9h-3.1v-2.9zm0-3.7h3.1v2.9h-3.1v-2.9zm3.9 3.7h3.1v2.9h-3.1v-2.9z"/></svg>
+                    </div>
+                    <div class="tech-icon" title="Python">
+                        <svg viewBox="0 0 32 32" width="32" height="32"><path fill="currentColor" d="M15.9 2c-1.3 0-2.6.1-3.7.4-3.2.7-3.8 2.2-3.8 5v3.7h7.6v1.2H7.4c-2.2 0-4.1 1.3-4.7 3.9-.7 2.9-.7 4.7 0 7.8.5 2.3 1.8 3.9 4 3.9h2.6v-3.5c0-2.5 2.1-4.7 4.7-4.7h7.6c2.1 0 3.8-1.7 3.8-3.8V8.5c0-2.1-1.8-3.6-3.8-4.1-1.3-.3-2.7-.4-4-.4h-.1zm-4.1 2.4c.8 0 1.4.6 1.4 1.4 0 .8-.6 1.4-1.4 1.4-.8 0-1.4-.6-1.4-1.4 0-.8.6-1.4 1.4-1.4z"/><path fill="currentColor" d="M24.7 12.4v3.4c0 2.6-2.2 4.8-4.7 4.8H12.4c-2.1 0-3.8 1.8-3.8 3.8v7.1c0 2.1 1.8 3.3 3.8 3.8 2.4.6 4.7.7 7.6 0 1.9-.5 3.8-1.5 3.8-3.8v-2.9h-7.6V27H28c2.2 0 3-1.5 3.8-3.8.8-2.4.7-4.7 0-7.8-.5-2.2-1.6-3.8-3.8-3.8h-2.8zm-4.3 15.2c.8 0 1.4.6 1.4 1.4 0 .8-.6 1.4-1.4 1.4-.8 0-1.4-.6-1.4-1.4 0-.8.6-1.4 1.4-1.4z"/></svg>
+                    </div>
+                    <div class="tech-icon" title="Go">
+                        <svg viewBox="0 0 32 32" width="32" height="32"><path fill="currentColor" d="M2.8 11.4c-.1 0-.1 0-.1-.1s0-.1.1-.1l4.9-.3c.1 0 .1 0 .1.1l.8 1.3c0 .1 0 .1-.1.1l-4.9.3c-.1 0-.1 0-.1-.1l-.7-1.2zm-1.5 2.1c-.1 0-.1 0-.1-.1s0-.1.1-.1l6.3-.4c.1 0 .1 0 .1.1l.5 1c0 .1 0 .1-.1.1l-6.3.4c-.1 0-.1 0-.1-.1l-.4-.9zm2.4 2c-.1 0-.1 0-.1-.1 0-.1 0-.1.1-.1l4-.2c.1 0 .1 0 .1.1l.3.8c0 .1 0 .1-.1.1l-3.9.2c-.1 0-.1 0-.1-.1l-.3-.7zm17.1-3.3c0-.1-.1-.2-.2-.2l-3.1.2c-.1 0-.2.1-.2.2v6.2c0 .1.1.2.2.2l3.1-.2c.1 0 .2-.1.2-.2v-6.2zm7.7-.5l-.9 1.3c-.1.1-.2.1-.3 0l-1-.7c-.1-.1-.1-.2 0-.3l.9-1.3c.1-.1.2-.1.3 0l1 .7c.1.1.1.2 0 .3zm-.9 8.4c-2.4.1-4.4-1.7-4.5-4.1-.1-2.4 1.7-4.4 4.1-4.5s4.4 1.7 4.5 4.1c.1 2.4-1.7 4.4-4.1 4.5zm.1-6.1c-1 .1-1.8.9-1.7 2 .1 1 .9 1.8 2 1.7 1-.1 1.8-.9 1.7-2-.1-1-.9-1.8-2-1.7zm-9.5 6c-2.4.1-4.4-1.7-4.5-4.1-.1-2.4 1.7-4.4 4.1-4.5s4.4 1.7 4.5 4.1c.1 2.4-1.7 4.4-4.1 4.5zm.1-6.1c-1 .1-1.8.9-1.7 2 .1 1 .9 1.8 2 1.7 1-.1 1.8-.9 1.7-2-.1-1-.9-1.8-2-1.7z"/></svg>
+                    </div>
+                    <div class="tech-icon" title="Node.js">
+                        <svg viewBox="0 0 32 32" width="32" height="32"><path fill="currentColor" d="M16 30.3c-.4 0-.8-.1-1.2-.3l-3.8-2.3c-.6-.3-.3-.4-.1-.5.8-.3.9-.3 1.7-.8.1 0 .2 0 .2.1l2.9 1.7c.1.1.2.1.3 0l11.4-6.6c.1-.1.2-.2.2-.3V8.2c0-.1-.1-.3-.2-.3L16.1 1.3c-.1-.1-.2-.1-.3 0L4.4 7.9c-.1.1-.2.2-.2.3v13.2c0 .1.1.3.2.3l3.1 1.8c1.7.9 2.8-.2 2.8-1.3V9.3c0-.2.1-.3.3-.3h1.4c.2 0 .3.1.3.3v12.9c0 2.5-1.4 4-3.8 4-.7 0-1.4 0-3-.8l-3-1.7c-.7-.4-1.2-1.2-1.2-2.1V8.2c0-.9.5-1.7 1.2-2.1L13.9.5c.7-.4 1.7-.4 2.4 0l11.4 6.6c.7.4 1.2 1.2 1.2 2.1v13.2c0 .9-.5 1.7-1.2 2.1l-11.4 6.6c-.4.2-.8.2-1.3.2z"/></svg>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Companies Section -->
+        <section class="companies-section">
+            <div class="container">
+                <h2 class="section-title section-title--center">Trusted by Industry Leaders</h2>
+                <p class="section-subtitle">I've built and maintained infrastructure for these amazing companies</p>
+                <div class="companies-grid">
+                    <div class="company-logo" title="Fueled">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/fueled.svg" alt="Fueled" loading="lazy">
+                    </div>
+                    <div class="company-logo" title="10up">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/10up.svg" alt="10up" loading="lazy">
+                    </div>
+                    <div class="company-logo" title="Pinterest">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/pinterest.svg" alt="Pinterest" loading="lazy">
+                    </div>
+                    <div class="company-logo" title="Microsoft">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/microsoft.svg" alt="Microsoft" loading="lazy">
+                    </div>
+                    <div class="company-logo" title="Sandals Resorts">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/sandals.svg" alt="Sandals Resorts" loading="lazy">
+                    </div>
+                    <div class="company-logo" title="InvestorPlace">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/investorplace.svg" alt="InvestorPlace" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -39,9 +143,16 @@ get_header();
         <div class="container">
             <?php if (is_front_page() && !is_paged()) : ?>
                 <header class="section-header">
-                    <h2 class="section-title">Latest Posts</h2>
+                    <div>
+                        <h2 class="section-title">Latest Articles</h2>
+                        <p class="section-description">Thoughts on SRE, DevOps, automation, and building reliable systems</p>
+                    </div>
                     <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="btn btn--outline">
-                        View All
+                        View All Articles
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
                     </a>
                 </header>
             <?php endif; ?>
@@ -57,7 +168,6 @@ get_header();
                 </div>
 
                 <?php
-                // Pagination
                 the_posts_pagination(array(
                     'mid_size'  => 2,
                     'prev_text' => '← Previous',
@@ -73,6 +183,25 @@ get_header();
             <?php endif; ?>
         </div>
     </section>
+
+    <?php if (is_front_page() && !is_paged()) : ?>
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to build something reliable?</h2>
+                    <p class="cta-subtitle">Let's discuss how I can help transform your infrastructure</p>
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--primary btn--large">
+                        Get in Touch
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    <?php endif; ?>
 </main>
 
 <?php
