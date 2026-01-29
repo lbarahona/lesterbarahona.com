@@ -28,6 +28,7 @@ wp-*.php
 !wp-content/plugins/wp-mail-smtp/wp-mail-smtp.php
 xmlrpc.php
 index.php
+!themes/*/index.php
 readme.html
 license.txt
 
