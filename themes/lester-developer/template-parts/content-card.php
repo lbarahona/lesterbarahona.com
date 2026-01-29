@@ -31,8 +31,8 @@
             <span class="post-card__reading-time"><?php echo lester_developer_reading_time(); ?></span>
         </div>
 
-        <h2 class="post-card__title">
-            <a href="<?php the_permalink(); ?>">
+        <h2 class="post-card__title" style="display: block !important; visibility: visible !important; opacity: 1 !important; color: #fff !important; font-size: 1.25rem !important; font-weight: 700 !important; margin-bottom: 0.5rem !important; line-height: 1.4 !important;">
+            <a href="<?php the_permalink(); ?>" style="color: #fff !important; text-decoration: none !important; display: block !important;">
                 <?php the_title(); ?>
             </a>
         </h2>
