@@ -1653,3 +1653,39 @@ pre code {
   color: var(--color-text-secondary);
   margin-bottom: var(--space-lg);
 }
+
+/* ========================================
+   Elementor Override - Force Dark Theme
+   ======================================== */
+.page-template-page-contact,
+.page-template-page-about,
+.elementor-page {
+  background: var(--color-bg) !important;
+}
+
+.page-template-page-contact .elementor-section,
+.page-template-page-contact .elementor-container,
+.page-template-page-contact .elementor-column,
+.page-template-page-contact .elementor-widget-wrap,
+.page-template-page-about .elementor-section,
+.page-template-page-about .elementor-container,
+.page-template-page-about .elementor-column,
+.page-template-page-about .elementor-widget-wrap {
+  background: transparent !important;
+}
+
+.page-template-page-contact .elementor-element,
+.page-template-page-about .elementor-element {
+  color: var(--color-text) !important;
+}
+
+.page-template-page-contact h1,
+.page-template-page-contact h2,
+.page-template-page-contact h3,
+.page-template-page-contact h4,
+.page-template-page-about h1,
+.page-template-page-about h2,
+.page-template-page-about h3,
+.page-template-page-about h4 {
+  color: #fff !important;
+}
