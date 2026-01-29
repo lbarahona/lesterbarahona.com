@@ -19,8 +19,7 @@ $hero_visual = get_theme_mod('hero_visual_style', 'image');
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
-                    <span class="hero-badge__icon">🚀</span>
-                    <span>Available for consulting</span>
+                    <span class="hero-badge__text">Available for consulting</span>
                 </div>
                 <h1 class="hero-title">
                     I build infrastructure<br>
