@@ -7,21 +7,15 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('post-card'); ?>>
-    <?php if (has_post_thumbnail()) : ?>
-        <a href="<?php the_permalink(); ?>" class="post-card__image">
+    <a href="<?php the_permalink(); ?>" class="post-card__image">
+        <?php if (has_post_thumbnail()) : ?>
             <?php the_post_thumbnail('large'); ?>
-        </a>
-    <?php else : ?>
-        <a href="<?php the_permalink(); ?>" class="post-card__image">
-            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: var(--color-text-muted);">
-                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                    <polyline points="21 15 16 10 5 21"></polyline>
-                </svg>
-            </div>
-        </a>
-    <?php endif; ?>
+        <?php else : ?>
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/default-post-image.svg" 
+                 alt="<?php the_title_attribute(); ?>" 
+                 class="post-card__default-image">
+        <?php endif; ?>
+    </a>
 
     <div class="post-card__content">
         <div class="post-card__meta">
