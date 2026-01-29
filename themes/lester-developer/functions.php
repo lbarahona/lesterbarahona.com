@@ -57,32 +57,37 @@ function lester_developer_setup() {
         'flex-width'  => true,
     ));
 
-    // Editor color palette
+    // Editor color palette - Industrial Terminal
     add_theme_support('editor-color-palette', array(
         array(
-            'name'  => __('Primary Blue', 'lester-developer'),
+            'name'  => __('Primary Amber', 'lester-developer'),
             'slug'  => 'primary',
-            'color' => '#3b82f6',
+            'color' => '#f59e0b',
+        ),
+        array(
+            'name'  => __('Accent Cyan', 'lester-developer'),
+            'slug'  => 'accent',
+            'color' => '#22d3ee',
         ),
         array(
             'name'  => __('Dark Background', 'lester-developer'),
             'slug'  => 'dark-bg',
-            'color' => '#0f0f0f',
+            'color' => '#0a0a0a',
         ),
         array(
             'name'  => __('Card Background', 'lester-developer'),
             'slug'  => 'card-bg',
-            'color' => '#161616',
+            'color' => '#141414',
         ),
         array(
             'name'  => __('Text', 'lester-developer'),
             'slug'  => 'text',
-            'color' => '#e5e5e5',
+            'color' => '#d4d4d4',
         ),
         array(
             'name'  => __('Muted Text', 'lester-developer'),
             'slug'  => 'text-muted',
-            'color' => '#888888',
+            'color' => '#737373',
         ),
     ));
 }
@@ -100,10 +105,10 @@ function lester_developer_scripts() {
         wp_get_theme()->get('Version')
     );
 
-    // Google Fonts - Inter
+    // Google Fonts - Space Mono + Instrument Sans (Industrial Terminal aesthetic)
     wp_enqueue_style(
         'lester-developer-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap',
+        'https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap',
         array(),
         null
     );
@@ -278,7 +283,7 @@ add_action('wp_head', 'lester_developer_preload_fonts', 1);
  */
 function lester_developer_meta_tags() {
     ?>
-    <meta name="theme-color" content="#0f0f0f">
+    <meta name="theme-color" content="#0a0a0a">
     <meta name="color-scheme" content="dark">
     <?php
 }
