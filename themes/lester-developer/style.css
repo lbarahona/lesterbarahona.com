@@ -632,32 +632,33 @@ p {
 }
 
 .companies-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
   gap: var(--space-xl);
   align-items: center;
 }
 
 @media (max-width: 1024px) {
   .companies-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 
 @media (max-width: 600px) {
   .companies-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
 .company-logo {
-  display: flex;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   padding: var(--space-lg);
-  opacity: 0.5;
+  opacity: 0.6;
   filter: grayscale(100%);
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .company-logo:hover {
@@ -670,6 +671,7 @@ p {
   max-height: 40px;
   width: auto;
   height: auto;
+  display: block;
 }
 
 /* ========================================
@@ -1798,4 +1800,22 @@ pre code {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-radius: 4px;
+}
+
+/* AWS Badge */
+.aws-badge {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, #FF9900 0%, #FF6600 100%);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aws-badge__text {
+  color: #232F3E;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
 }

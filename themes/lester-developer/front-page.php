@@ -24,7 +24,7 @@ $hero_visual = get_theme_mod('hero_visual_style', 'image');
                 </div>
                 <h1 class="hero-title">
                     I build infrastructure<br>
-                    <span class="hero-title__highlight">that just works.</span>
+                    that just works.
                 </h1>
                 <p class="hero-subtitle">
                     Senior Site Reliability Engineer with 20 years of experience. I transform complex systems 
@@ -91,7 +91,6 @@ $hero_visual = get_theme_mod('hero_visual_style', 'image');
                 ?>
                     <img src="<?php echo esc_url($hero_image); ?>" alt="Lester Barahona" class="hero-image">
                 <?php else : ?>
-                    <!-- Placeholder with abstract tech visualization -->
                     <div class="hero-image-placeholder">
                         <div class="hero-image-placeholder__content">
                             <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,35 +99,14 @@ $hero_visual = get_theme_mod('hero_visual_style', 'image');
                                         <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
                                         <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.8" />
                                     </linearGradient>
-                                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3" />
-                                        <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.3" />
-                                    </linearGradient>
                                 </defs>
-                                <circle cx="200" cy="200" r="180" stroke="url(#grad2)" stroke-width="1" fill="none" opacity="0.5"/>
-                                <circle cx="200" cy="200" r="140" stroke="url(#grad2)" stroke-width="1" fill="none" opacity="0.5"/>
-                                <circle cx="200" cy="200" r="100" stroke="url(#grad2)" stroke-width="1" fill="none" opacity="0.5"/>
+                                <circle cx="200" cy="200" r="180" stroke="#3b82f6" stroke-width="1" fill="none" opacity="0.2"/>
+                                <circle cx="200" cy="200" r="140" stroke="#3b82f6" stroke-width="1" fill="none" opacity="0.2"/>
+                                <circle cx="200" cy="200" r="100" stroke="#3b82f6" stroke-width="1" fill="none" opacity="0.2"/>
                                 <rect x="160" y="160" width="80" height="80" rx="8" fill="url(#grad1)" opacity="0.9"/>
                                 <rect x="175" y="180" width="50" height="6" rx="3" fill="#fff" opacity="0.8"/>
                                 <rect x="175" y="195" width="35" height="6" rx="3" fill="#fff" opacity="0.6"/>
                                 <rect x="175" y="210" width="45" height="6" rx="3" fill="#fff" opacity="0.4"/>
-                                <circle cx="100" cy="120" r="20" fill="url(#grad1)" opacity="0.7"/>
-                                <circle cx="300" cy="120" r="20" fill="url(#grad1)" opacity="0.7"/>
-                                <circle cx="100" cy="280" r="20" fill="url(#grad1)" opacity="0.7"/>
-                                <circle cx="300" cy="280" r="20" fill="url(#grad1)" opacity="0.7"/>
-                                <circle cx="200" cy="60" r="15" fill="url(#grad1)" opacity="0.6"/>
-                                <circle cx="200" cy="340" r="15" fill="url(#grad1)" opacity="0.6"/>
-                                <circle cx="60" cy="200" r="15" fill="url(#grad1)" opacity="0.6"/>
-                                <circle cx="340" cy="200" r="15" fill="url(#grad1)" opacity="0.6"/>
-                                <line x1="120" y1="130" x2="160" y2="170" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
-                                <line x1="280" y1="130" x2="240" y2="170" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
-                                <line x1="120" y1="270" x2="160" y2="230" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
-                                <line x1="280" y1="270" x2="240" y2="230" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
-                                <line x1="200" y1="75" x2="200" y2="160" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
-                                <line x1="200" y1="240" x2="200" y2="325" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
-                                <line x1="75" y1="200" x2="160" y2="200" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
-                                <line x1="240" y1="200" x2="325" y2="200" stroke="url(#grad1)" stroke-width="2" opacity="0.5"/>
-                                <circle cx="200" cy="200" r="60" stroke="url(#grad1)" stroke-width="2" fill="none" class="pulse-ring"/>
                             </svg>
                             <p class="hero-image-placeholder__text">
                                 <span class="upload-hint">Add your photo in Customizer</span>
@@ -140,22 +118,37 @@ $hero_visual = get_theme_mod('hero_visual_style', 'image');
             <?php endif; ?>
         </div>
     </section>
-                </div>
-                <div class="company-logo" title="10up">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/10up.svg" alt="10up" loading="lazy">
-                </div>
-                <div class="company-logo" title="Pinterest">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/pinterest.svg" alt="Pinterest" loading="lazy">
-                </div>
-                <div class="company-logo" title="Microsoft">
+
+    <!-- Companies Section -->
+    <section class="companies-section">
+        <div class="container">
+            <h2 class="section-title section-title--center">Trusted by Industry Leaders</h2>
+            <p class="section-subtitle">I've built and maintained infrastructure for these amazing companies</p>
+            <div class="companies-grid">
+                <a href="https://www.microsoft.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Microsoft">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/microsoft.svg" alt="Microsoft" loading="lazy">
-                </div>
-                <div class="company-logo" title="Sandals Resorts">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/sandals.svg" alt="Sandals Resorts" loading="lazy">
-                </div>
-                <div class="company-logo" title="InvestorPlace">
+                </a>
+                <a href="https://www.starbucks.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Starbucks">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/starbucks.svg" alt="Starbucks" loading="lazy">
+                </a>
+                <a href="https://www.meta.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Meta">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/meta.svg" alt="Meta" loading="lazy">
+                </a>
+                <a href="https://fueled.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Fueled">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/fueled.svg" alt="Fueled" loading="lazy">
+                </a>
+                <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Pinterest">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/pinterest.svg" alt="Pinterest" loading="lazy">
+                </a>
+                <a href="https://investorplace.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="InvestorPlace">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/investorplace.svg" alt="InvestorPlace" loading="lazy">
-                </div>
+                </a>
+                <a href="https://www.sandals.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Sandals Resorts">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/sandals.svg" alt="Sandals Resorts" loading="lazy">
+                </a>
+                <a href="https://www.beaches.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Beaches Resorts">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/beaches.svg" alt="Beaches Resorts" loading="lazy">
+                </a>
             </div>
         </div>
     </section>
@@ -178,7 +171,6 @@ $hero_visual = get_theme_mod('hero_visual_style', 'image');
             </header>
 
             <?php
-            // Get recent posts
             $recent_posts = new WP_Query(array(
                 'posts_per_page' => 6,
                 'post_status'    => 'publish',
