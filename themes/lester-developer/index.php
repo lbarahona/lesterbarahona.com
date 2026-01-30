@@ -185,7 +185,7 @@ $hero_visual = get_theme_mod('hero_visual_style', 'image'); // Changed default t
         <!-- Companies Section -->
         <section class="companies-section">
             <div class="container">
-                <h2 class="section-title section-title--center">Trusted by Industry Leaders</h2>
+                <h2 class="section-title section-title--center">Companies I've Worked With</h2>
                 <p class="section-subtitle">I've built and maintained infrastructure for these amazing companies</p>
                 <div class="companies-grid">
                     <div class="company-logo" title="Fueled">
