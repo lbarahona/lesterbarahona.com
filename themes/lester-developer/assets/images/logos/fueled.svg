@@ -1,3 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="#ffffff">
-  <text x="0" y="28" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700">FUELED</text>
+  <!-- Fueled Logo - Rocket icon + wordmark -->
+  <g transform="translate(0, 8)">
+    <!-- Rocket icon -->
+    <path d="M12 0c-1.5 3-2.5 6.5-2.5 10 0 2.5.5 5 1.5 7l-3 3c-.5.5-.5 1.5 0 2l1 1c.5.5 1.5.5 2 0l3-3c2 1 4.5 1.5 7 1.5 3.5 0 7-1 10-2.5-3-3-10-10-19-19zm7 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+    <!-- Flame -->
+    <path d="M3 18c-1 1-2 3-2 5s1 3 2 4c0-2 1-3 2-4-1-1-2-3-2-5zm4 2c-1 1-1.5 2-1.5 3.5s.5 2.5 1.5 3.5c0-1.5.5-2.5 1.5-3.5-.5-.5-1-2-1.5-3.5z"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="35" y="27" font-family="'Montserrat', 'Helvetica Neue', sans-serif" font-size="20" font-weight="700" letter-spacing="0.5">FUELED</text>
 </svg>
