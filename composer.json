@@ -32,7 +32,8 @@
     "wpackagist-plugin/wpforms-lite":"1.8.5.3",
     "wpackagist-plugin/wp-mail-smtp":"3.10.0",
     "wpackagist-plugin/google-site-kit":"1.115.0",
-    "wpackagist-plugin/cloudflare":"4.12.6"
+    "wpackagist-plugin/cloudflare":"4.12.6",
+    "wpackagist-plugin/seo-by-rank-math":"1.0.235"
 	},
   "extra": {
 		"installer-paths": {
