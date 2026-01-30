@@ -6,6 +6,57 @@
  * @package Lester_Developer
  */
 
+// Handle form submission
+$form_submitted = false;
+$form_success = false;
+$form_error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_nonce'])) {
+    // Verify nonce
+    if (!wp_verify_nonce($_POST['contact_nonce'], 'contact_form_submit')) {
+        $form_error = 'Security check failed. Please try again.';
+    } else {
+        // Sanitize input
+        $name = sanitize_text_field($_POST['name'] ?? '');
+        $email = sanitize_email($_POST['email'] ?? '');
+        $subject = sanitize_text_field($_POST['subject'] ?? 'Contact Form Submission');
+        $message = sanitize_textarea_field($_POST['message'] ?? '');
+
+        // Validate required fields
+        if (empty($name) || empty($email) || empty($message)) {
+            $form_error = 'Please fill in all required fields.';
+        } elseif (!is_email($email)) {
+            $form_error = 'Please enter a valid email address.';
+        } else {
+            // Build email
+            $to = 'lestermiller26@gmail.com';
+            $email_subject = '[Contact Form] ' . $subject;
+            $email_body = "You have received a new message from your website contact form.\n\n";
+            $email_body .= "Name: $name\n";
+            $email_body .= "Email: $email\n";
+            $email_body .= "Subject: $subject\n\n";
+            $email_body .= "Message:\n$message\n";
+
+            $headers = array(
+                'Content-Type: text/plain; charset=UTF-8',
+                'From: ' . get_bloginfo('name') . ' <noreply@lesterbarahona.com>',
+                'Reply-To: ' . $name . ' <' . $email . '>',
+            );
+
+            // Send email
+            $sent = wp_mail($to, $email_subject, $email_body, $headers);
+
+            if ($sent) {
+                $form_submitted = true;
+                $form_success = true;
+            } else {
+                $form_error = 'There was an error sending your message. Please try again or email me directly.';
+            }
+        }
+    }
+    $form_submitted = true;
+}
+
 get_header();
 ?>
 
@@ -87,37 +138,67 @@ get_header();
                 <div class="contact-form-wrapper">
                     <div class="contact-form-card">
                         <h2>Send a Message</h2>
-                        <p>Fill out the form below and I'll get back to you as soon as possible.</p>
                         
-                        <form class="contact-form" action="#" method="post" id="contact-form">
-                            <div class="form-group">
-                                <label for="contact-name">Name <span class="required">*</span></label>
-                                <input type="text" id="contact-name" name="name" required placeholder="Your name">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact-email">Email <span class="required">*</span></label>
-                                <input type="email" id="contact-email" name="email" required placeholder="your@email.com">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact-subject">Subject</label>
-                                <input type="text" id="contact-subject" name="subject" placeholder="What's this about?">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact-message">Message <span class="required">*</span></label>
-                                <textarea id="contact-message" name="message" rows="5" required placeholder="Tell me about your project or question..."></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn btn--primary btn--large btn--full">
-                                Send Message
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="22" y1="2" x2="11" y2="13"></line>
-                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        <?php if ($form_success) : ?>
+                            <div class="form-message form-message--success">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
                                 </svg>
-                            </button>
-                        </form>
+                                <div>
+                                    <strong>Message sent!</strong>
+                                    <p>Thanks for reaching out. I'll get back to you as soon as possible.</p>
+                                </div>
+                            </div>
+                        <?php else : ?>
+                            <?php if ($form_error) : ?>
+                                <div class="form-message form-message--error">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                                    </svg>
+                                    <div>
+                                        <strong>Error</strong>
+                                        <p><?php echo esc_html($form_error); ?></p>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <p>Fill out the form below and I'll get back to you as soon as possible.</p>
+                            
+                            <form class="contact-form" action="<?php echo esc_url(get_permalink()); ?>" method="post" id="contact-form">
+                                <?php wp_nonce_field('contact_form_submit', 'contact_nonce'); ?>
+                                
+                                <div class="form-group">
+                                    <label for="contact-name">Name <span class="required">*</span></label>
+                                    <input type="text" id="contact-name" name="name" required placeholder="Your name" value="<?php echo esc_attr($_POST['name'] ?? ''); ?>">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact-email">Email <span class="required">*</span></label>
+                                    <input type="email" id="contact-email" name="email" required placeholder="your@email.com" value="<?php echo esc_attr($_POST['email'] ?? ''); ?>">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact-subject">Subject</label>
+                                    <input type="text" id="contact-subject" name="subject" placeholder="What's this about?" value="<?php echo esc_attr($_POST['subject'] ?? ''); ?>">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="contact-message">Message <span class="required">*</span></label>
+                                    <textarea id="contact-message" name="message" rows="5" required placeholder="Tell me about your project or question..."><?php echo esc_textarea($_POST['message'] ?? ''); ?></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn--primary btn--large btn--full">
+                                    Send Message
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="22" y1="2" x2="11" y2="13"></line>
+                                        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                    </svg>
+                                </button>
+                            </form>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
