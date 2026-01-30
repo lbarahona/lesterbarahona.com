@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700');
+      .logo-text {
+        font-family: 'Space Mono', monospace;
+        font-weight: 700;
+        font-size: 36px;
+        fill: #f59e0b;
+      }
+    </style>
+  </defs>
+  <text x="50%" y="50%" class="logo-text" text-anchor="middle" dominant-baseline="central">[ LB ]</text>
+</svg>
