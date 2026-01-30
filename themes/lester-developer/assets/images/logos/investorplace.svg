@@ -1,12 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 40" fill="#ffffff">
-  <!-- InvestorPlace Logo -->
-  <g transform="translate(0, 8)">
-    <!-- Chart/Arrow up icon -->
-    <path d="M0 20h4v4H0zm6-4h4v8H6zm6-6h4v14h-4zm6 2h4v12h-4z"/>
-    <path d="M22 4l6 6-2 2-4-4-4 4-2-2z"/>
-  </g>
-  <!-- Wordmark -->
-  <text x="36" y="26" font-family="'Georgia', 'Times New Roman', serif" font-size="16" font-weight="400">
-    <tspan font-weight="700">Investor</tspan><tspan font-weight="400">Place</tspan>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 30" fill="#ffffff">
+  <!-- InvestorPlace Logo - Financial publication style -->
+  <text x="0" y="22" font-family="'Georgia', 'Times New Roman', serif" font-size="20" font-weight="400" letter-spacing="0.5">
+    <tspan font-weight="700">Investor</tspan><tspan>Place</tspan>
   </text>
 </svg>
