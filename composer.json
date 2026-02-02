@@ -1,56 +1,112 @@
 {
-  "name": "lbarahona/wp",
-  "description": "Lester Barahona - Personal Blog",
+  "name": "lbarahona/blog",
+  "description": "Personal blog and technical content platform for Lester Barahona - SRE, DevOps, AI, and technology insights",
+  "type": "wordpress-site",
+  "keywords": ["wordpress", "blog", "sre", "devops", "ai", "technology"],
+  "homepage": "https://lesterbarahona.com",
+  "license": "MIT",
   "authors": [
     {
       "name": "Lester Barahona",
-      "email": "lestermiller26@gmail.com"
+      "email": "lestermiller26@gmail.com",
+      "homepage": "https://lesterbarahona.com",
+      "role": "Developer"
     }
   ],
-  "repositories": [
-		{
-			"type": "composer",
-			"url": "https://wpackagist.org"
-		}
-	],
-  "config": {
-    "allow-plugins": {
-      "composer/installers": true
-    },
-    "platform": {
-      "php": "8.2"
-    }
+  "support": {
+    "issues": "https://github.com/lbarahona/lesterbarahona.com/issues",
+    "source": "https://github.com/lbarahona/lesterbarahona.com"
   },
   "require": {
-    "wpackagist-theme/astra":"4.6.5",
-    "wpackagist-plugin/astra-sites":"4.0.13",
-    "wpackagist-plugin/elementor":"3.19.2",
-		"wpackagist-plugin/stream": "3.10.0",
-    "wpackagist-plugin/redis-cache": "2.5.0",
-    "wpackagist-plugin/wordpress-importer": "0.8.1",
-    "wpackagist-plugin/code-syntax-block": "3.1.1",
-    "wpackagist-plugin/wpforms-lite":"1.8.5.3",
-    "wpackagist-plugin/wp-mail-smtp":"3.10.0",
-    "wpackagist-plugin/google-site-kit":"1.115.0",
-    "wpackagist-plugin/cloudflare":"4.12.6",
-    "wpackagist-plugin/seo-by-rank-math":"1.0.235"
-	},
-  "extra": {
-		"installer-paths": {
-			"themes/{$name}": [
-				"type:wordpress-theme"
-			],
-			"plugins/{$name}": [
-				"type:wordpress-plugin"
-			],
-			"mu-plugins/{$name}": [
-				"type:wordpress-muplugin"
-			]
-		}
-	},
+    "php": ">=8.1",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-curl": "*",
+    "ext-gd": "*",
+    "ext-mysql": "*",
+    "ext-zip": "*"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.10",
+    "squizlabs/php_codesniffer": "^3.7",
+    "wp-coding-standards/wpcs": "^3.0",
+    "psalm/psalm": "^5.15",
+    "phpunit/phpunit": "^10.0",
+    "symfony/var-dumper": "^6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "LesterBlog\\": "mu-plugins/classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "LesterBlog\\Tests\\": "tests/"
+    }
+  },
   "scripts": {
-		"post-autoload-dump": [
-			"cp ./plugins/redis-cache/includes/object-cache.php ./object-cache.php"
-		]
-	}
+    "test": "phpunit",
+    "phpstan": "phpstan analyse --memory-limit=1G",
+    "phpcs": "phpcs --standard=WordPress --extensions=php mu-plugins/ themes/",
+    "phpcbf": "phpcbf --standard=WordPress --extensions=php mu-plugins/ themes/",
+    "psalm": "psalm --show-info=true",
+    "security-check": [
+      "wget -O security-checker https://get.sensiolabs.org/security-checker.phar",
+      "chmod +x security-checker",
+      "./security-checker security:check composer.lock"
+    ],
+    "install-hooks": [
+      "echo '#!/bin/sh' > .git/hooks/pre-commit",
+      "echo 'composer phpcs' >> .git/hooks/pre-commit",
+      "echo 'composer phpstan' >> .git/hooks/pre-commit", 
+      "chmod +x .git/hooks/pre-commit"
+    ],
+    "post-install-cmd": [
+      "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
+    ],
+    "post-update-cmd": [
+      "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs"
+    ]
+  },
+  "scripts-descriptions": {
+    "test": "Run PHPUnit tests",
+    "phpstan": "Run PHPStan static analysis",
+    "phpcs": "Check WordPress coding standards",
+    "phpcbf": "Fix WordPress coding standards violations",
+    "psalm": "Run Psalm static analysis",
+    "security-check": "Check for security vulnerabilities in dependencies",
+    "install-hooks": "Install Git pre-commit hooks"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "extra": {
+    "wordpress": {
+      "version": ">=6.0"
+    },
+    "performance": {
+      "php_version": "8.3",
+      "opcache_enabled": true,
+      "object_cache": "redis",
+      "page_cache": "cloudflare",
+      "cdn": "cloudflare"
+    },
+    "security": {
+      "force_ssl": true,
+      "disable_file_edit": true,
+      "brute_force_protection": true,
+      "rate_limiting": true,
+      "security_headers": true
+    },
+    "monitoring": {
+      "health_endpoints": true,
+      "performance_metrics": true,
+      "security_logging": true,
+      "error_tracking": true
+    }
+  }
 }
