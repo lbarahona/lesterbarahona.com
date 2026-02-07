@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C /Users/lbarahona/Projects/lesterbarahona.com log --oneline -15)",
+      "Bash(git -C /Users/lbarahona/Projects/lesterbarahona.com remote -v)"
+    ]
+  }
+}
