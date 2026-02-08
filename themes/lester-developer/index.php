@@ -11,6 +11,11 @@ get_header();
 <main id="primary" class="site-main">
     <section class="posts-section">
         <div class="container">
+            <header class="archive-header" data-reveal>
+                <h1 class="archive-title">Blog</h1>
+                <p class="archive-description">Thoughts on infrastructure, reliability, and the craft of building systems that scale.</p>
+            </header>
+
             <?php if (have_posts()) : ?>
                 <div class="posts-grid">
                     <?php

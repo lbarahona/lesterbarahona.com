@@ -115,6 +115,14 @@ function lester_developer_scripts() {
         true
     );
 
+    wp_enqueue_script(
+        'lester-developer-scroll-reveal',
+        get_template_directory_uri() . '/assets/js/scroll-reveal.js',
+        array(),
+        wp_get_theme()->get('Version'),
+        true
+    );
+
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }

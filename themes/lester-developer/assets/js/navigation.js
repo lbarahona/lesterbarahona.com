@@ -29,15 +29,34 @@
         });
     }
 
-    // Scroll-aware header shadow
-    if (header) {
-        var scrolled = false;
-        window.addEventListener('scroll', function() {
-            var isScrolled = window.scrollY > 10;
+    // Scroll-aware header shadow + back-to-top button
+    var backToTop = document.getElementById('back-to-top');
+    var scrolled = false;
+    var backToTopVisible = false;
+
+    window.addEventListener('scroll', function() {
+        var scrollY = window.scrollY;
+
+        if (header) {
+            var isScrolled = scrollY > 10;
             if (isScrolled !== scrolled) {
                 scrolled = isScrolled;
                 header.classList.toggle('scrolled', scrolled);
             }
-        }, { passive: true });
+        }
+
+        if (backToTop) {
+            var shouldShow = scrollY > 400;
+            if (shouldShow !== backToTopVisible) {
+                backToTopVisible = shouldShow;
+                backToTop.classList.toggle('visible', backToTopVisible);
+            }
+        }
+    }, { passive: true });
+
+    if (backToTop) {
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
     }
 })();
