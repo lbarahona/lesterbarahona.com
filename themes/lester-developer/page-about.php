@@ -45,7 +45,7 @@ get_header();
             <div class="container">
                 <h2 class="section-title--center">Companies I've Worked With</h2>
             </div>
-            <?php get_template_part('template-parts/companies-logos', null, array('marquee' => false)); ?>
+            <?php get_template_part('template-parts/companies-logos', null, array('marquee' => true)); ?>
         </section>
 
         <div class="container container--narrow">
