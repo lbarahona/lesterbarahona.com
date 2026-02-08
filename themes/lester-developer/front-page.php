@@ -115,56 +115,6 @@ get_header();
         <?php get_template_part('template-parts/companies-logos', null, array('marquee' => true)); ?>
     </section>
 
-    <!-- Featured Work Section -->
-    <section class="featured-work">
-        <div class="container">
-            <h2 class="section-title" data-reveal>Featured Work</h2>
-            <div class="featured-work-grid">
-                <div class="featured-work-card" data-reveal data-reveal-delay="100">
-                    <h3 class="featured-work-card__company">Microsoft</h3>
-                    <p class="featured-work-card__description">Built CI/CD pipelines and cloud infrastructure supporting engineering teams at scale.</p>
-                </div>
-                <div class="featured-work-card" data-reveal data-reveal-delay="200">
-                    <h3 class="featured-work-card__company">Starbucks</h3>
-                    <p class="featured-work-card__description">Architected reliable systems for one of the world's most recognized brands.</p>
-                </div>
-                <div class="featured-work-card" data-reveal data-reveal-delay="300">
-                    <h3 class="featured-work-card__company">Meta</h3>
-                    <p class="featured-work-card__description">Contributed to platform infrastructure serving billions of users worldwide.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="container">
-            <h2 class="section-title" data-reveal>What People Say</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial-card" data-reveal data-reveal-delay="100">
-                    <div class="testimonial-card__quote-mark">&ldquo;</div>
-                    <p class="testimonial-card__text">Lester transformed our deployment process from a multi-day ordeal into a seamless, automated pipeline. His deep understanding of infrastructure and reliability engineering is exceptional.</p>
-                    <div class="testimonial-card__author">
-                        <div class="testimonial-card__author-info">
-                            <span class="testimonial-card__author-name">Engineering Director</span>
-                            <span class="testimonial-card__author-title">Fortune 500 Tech Company</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-card" data-reveal data-reveal-delay="200">
-                    <div class="testimonial-card__quote-mark">&ldquo;</div>
-                    <p class="testimonial-card__text">Working with Lester was a game-changer for our team. He brought clarity to our cloud strategy and built systems that our engineers actually enjoy using. Highly recommended.</p>
-                    <div class="testimonial-card__author">
-                        <div class="testimonial-card__author-info">
-                            <span class="testimonial-card__author-name">VP of Engineering</span>
-                            <span class="testimonial-card__author-title">Global Retail Brand</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Latest Articles -->
     <section class="posts-section">
         <div class="container">
