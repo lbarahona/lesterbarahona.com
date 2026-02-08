@@ -43,35 +43,9 @@ get_header();
         <!-- Companies Section -->
         <section class="companies-section companies-section--about">
             <div class="container">
-                <h2 class="section-title section-title--center">Companies I've Worked With</h2>
-                <p class="section-subtitle">Over the years, I've had the privilege of building infrastructure for these amazing companies</p>
-                <div class="companies-grid">
-                    <a href="https://www.microsoft.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Microsoft">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/microsoft.svg" alt="Microsoft" loading="lazy">
-                    </a>
-                    <a href="https://www.starbucks.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Starbucks">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/starbucks.svg" alt="Starbucks" loading="lazy">
-                    </a>
-                    <a href="https://www.meta.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Meta">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/meta.svg" alt="Meta" loading="lazy">
-                    </a>
-                    <a href="https://fueled.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Fueled">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/fueled.svg" alt="Fueled" loading="lazy">
-                    </a>
-                    <a href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Pinterest">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/pinterest.svg" alt="Pinterest" loading="lazy">
-                    </a>
-                    <a href="https://investorplace.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="InvestorPlace">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/investorplace.svg" alt="InvestorPlace" loading="lazy">
-                    </a>
-                    <a href="https://www.sandals.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Sandals Resorts">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/sandals.svg" alt="Sandals Resorts" loading="lazy">
-                    </a>
-                    <a href="https://www.beaches.com/" target="_blank" rel="noopener noreferrer" class="company-logo" title="Beaches Resorts">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logos/beaches.svg" alt="Beaches Resorts" loading="lazy">
-                    </a>
-                </div>
+                <h2 class="section-title--center">Companies I've Worked With</h2>
             </div>
+            <?php get_template_part('template-parts/companies-logos', null, array('marquee' => false)); ?>
         </section>
 
         <div class="container container--narrow">

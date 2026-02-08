@@ -22,6 +22,7 @@ get_header();
                         </a>
                     <?php endif; ?>
                     <span class="post-header__date"><?php echo get_the_date(); ?></span>
+                    <span>&middot;</span>
                     <span class="post-header__reading-time"><?php echo lester_developer_reading_time(); ?></span>
                 </div>
 
@@ -31,13 +32,17 @@ get_header();
                     <p class="post-header__excerpt"><?php echo get_the_excerpt(); ?></p>
                 <?php endif; ?>
             </header>
+        </div>
 
-            <?php if (has_post_thumbnail()) : ?>
-                <div class="post-featured-image">
+        <?php if (has_post_thumbnail()) : ?>
+            <div class="post-featured-image">
+                <div class="container">
                     <?php the_post_thumbnail('full'); ?>
                 </div>
-            <?php endif; ?>
+            </div>
+        <?php endif; ?>
 
+        <div class="container container--narrow">
             <div class="post-content">
                 <?php
                 the_content();
@@ -51,7 +56,6 @@ get_header();
 
             <footer class="post-footer">
                 <?php
-                // Tags
                 $tags = get_the_tags();
                 if ($tags) :
                 ?>
@@ -68,7 +72,6 @@ get_header();
             </footer>
 
             <?php
-            // Comments
             if (comments_open() || get_comments_number()) :
                 comments_template();
             endif;

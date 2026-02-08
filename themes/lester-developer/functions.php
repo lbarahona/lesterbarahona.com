@@ -13,23 +13,16 @@ if (!defined('ABSPATH')) {
  * Theme Setup
  */
 function lester_developer_setup() {
-    // Add default posts and comments RSS feed links to head
     add_theme_support('automatic-feed-links');
-
-    // Let WordPress manage the document title
     add_theme_support('title-tag');
-
-    // Enable support for Post Thumbnails
     add_theme_support('post-thumbnails');
     set_post_thumbnail_size(1200, 675, true);
 
-    // Register navigation menus
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'lester-developer'),
         'footer'  => __('Footer Menu', 'lester-developer'),
     ));
 
-    // Switch default core markup to output valid HTML5
     add_theme_support('html5', array(
         'search-form',
         'comment-form',
@@ -40,16 +33,10 @@ function lester_developer_setup() {
         'script',
     ));
 
-    // Add support for block styles
     add_theme_support('wp-block-styles');
-
-    // Add support for full and wide align images
     add_theme_support('align-wide');
-
-    // Add support for responsive embedded content
     add_theme_support('responsive-embeds');
 
-    // Custom logo support
     add_theme_support('custom-logo', array(
         'height'      => 50,
         'width'       => 200,
@@ -57,7 +44,7 @@ function lester_developer_setup() {
         'flex-width'  => true,
     ));
 
-    // Editor color palette - Industrial Terminal
+    // Editor color palette
     add_theme_support('editor-color-palette', array(
         array(
             'name'  => __('Primary Amber', 'lester-developer'),
@@ -65,29 +52,29 @@ function lester_developer_setup() {
             'color' => '#f59e0b',
         ),
         array(
-            'name'  => __('Accent Cyan', 'lester-developer'),
+            'name'  => __('Accent Blue', 'lester-developer'),
             'slug'  => 'accent',
-            'color' => '#22d3ee',
+            'color' => '#2563eb',
         ),
         array(
-            'name'  => __('Dark Background', 'lester-developer'),
-            'slug'  => 'dark-bg',
-            'color' => '#0a0a0a',
+            'name'  => __('Background', 'lester-developer'),
+            'slug'  => 'background',
+            'color' => '#fafafa',
         ),
         array(
             'name'  => __('Card Background', 'lester-developer'),
             'slug'  => 'card-bg',
-            'color' => '#141414',
+            'color' => '#ffffff',
         ),
         array(
             'name'  => __('Text', 'lester-developer'),
             'slug'  => 'text',
-            'color' => '#d4d4d4',
+            'color' => '#1a1a2e',
         ),
         array(
             'name'  => __('Muted Text', 'lester-developer'),
             'slug'  => 'text-muted',
-            'color' => '#737373',
+            'color' => '#8888a0',
         ),
     ));
 }
@@ -97,7 +84,6 @@ add_action('after_setup_theme', 'lester_developer_setup');
  * Enqueue scripts and styles
  */
 function lester_developer_scripts() {
-    // Main stylesheet
     wp_enqueue_style(
         'lester-developer-style',
         get_stylesheet_uri(),
@@ -105,15 +91,14 @@ function lester_developer_scripts() {
         wp_get_theme()->get('Version')
     );
 
-    // Google Fonts - Space Mono + Instrument Sans (Industrial Terminal aesthetic)
+    // Google Fonts — Plus Jakarta Sans + Inter + JetBrains Mono
     wp_enqueue_style(
         'lester-developer-fonts',
-        'https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap',
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Plus+Jakarta+Sans:wght@700;800&display=swap',
         array(),
         null
     );
 
-    // Navigation toggle script
     wp_enqueue_script(
         'lester-developer-navigation',
         get_template_directory_uri() . '/assets/js/navigation.js',
@@ -122,7 +107,14 @@ function lester_developer_scripts() {
         true
     );
 
-    // Comment reply script
+    wp_enqueue_script(
+        'lester-developer-theme-toggle',
+        get_template_directory_uri() . '/assets/js/theme-toggle.js',
+        array(),
+        wp_get_theme()->get('Version'),
+        true
+    );
+
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
@@ -149,14 +141,10 @@ add_filter('excerpt_more', 'lester_developer_excerpt_more');
  * Add custom classes to body
  */
 function lester_developer_body_classes($classes) {
-    // Add class for singular pages
     if (is_singular()) {
         $classes[] = 'singular';
     }
-
-    // Add class if no sidebar
     $classes[] = 'no-sidebar';
-
     return $classes;
 }
 add_filter('body_class', 'lester_developer_body_classes');
@@ -205,17 +193,17 @@ function lester_developer_post_navigation() {
     }
 
     echo '<nav class="post-navigation">';
-    
+
     if ($prev_post) {
         echo '<a href="' . esc_url(get_permalink($prev_post)) . '" class="nav-previous">';
-        echo '<span class="nav-label">← Previous</span>';
+        echo '<span class="nav-label">&larr; Previous</span>';
         echo '<span class="nav-title">' . esc_html(get_the_title($prev_post)) . '</span>';
         echo '</a>';
     }
 
     if ($next_post) {
         echo '<a href="' . esc_url(get_permalink($next_post)) . '" class="nav-next">';
-        echo '<span class="nav-label">Next →</span>';
+        echo '<span class="nav-label">Next &rarr;</span>';
         echo '<span class="nav-title">' . esc_html(get_the_title($next_post)) . '</span>';
         echo '</a>';
     }
@@ -230,7 +218,7 @@ function lester_developer_reading_time($post_id = null) {
     $post_id = $post_id ?: get_the_ID();
     $content = get_post_field('post_content', $post_id);
     $word_count = str_word_count(strip_tags($content));
-    $reading_time = ceil($word_count / 200); // 200 words per minute
+    $reading_time = ceil($word_count / 200);
 
     return $reading_time . ' min read';
 }
@@ -283,8 +271,9 @@ add_action('wp_head', 'lester_developer_preload_fonts', 1);
  */
 function lester_developer_meta_tags() {
     ?>
-    <meta name="theme-color" content="#0a0a0a">
-    <meta name="color-scheme" content="dark">
+    <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f0f13" media="(prefers-color-scheme: dark)">
+    <meta name="color-scheme" content="light dark">
     <?php
 }
 add_action('wp_head', 'lester_developer_meta_tags');
@@ -299,22 +288,6 @@ function lester_developer_customize_register($wp_customize) {
         'priority' => 30,
     ));
 
-    // Hero Visual Style
-    $wp_customize->add_setting('hero_visual_style', array(
-        'default'           => 'image',
-        'sanitize_callback' => 'sanitize_text_field',
-    ));
-
-    $wp_customize->add_control('hero_visual_style', array(
-        'label'    => __('Hero Visual Style', 'lester-developer'),
-        'section'  => 'hero_section',
-        'type'     => 'select',
-        'choices'  => array(
-            'image'    => __('Image/Photo', 'lester-developer'),
-            'terminal' => __('Terminal/Code', 'lester-developer'),
-        ),
-    ));
-
     // Hero Image
     $wp_customize->add_setting('hero_image', array(
         'default'           => '',
@@ -325,7 +298,7 @@ function lester_developer_customize_register($wp_customize) {
         'label'    => __('Hero Image', 'lester-developer'),
         'section'  => 'hero_section',
         'settings' => 'hero_image',
-        'description' => __('Upload a professional photo or abstract image. Recommended size: 500x500px or larger.', 'lester-developer'),
+        'description' => __('Upload a professional photo. Recommended: square, 500x500px or larger. Will be displayed in a circle.', 'lester-developer'),
     )));
 }
 add_action('customize_register', 'lester_developer_customize_register');
