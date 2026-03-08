@@ -51,7 +51,7 @@
                 <div class="footer-contact">
                     <h3>Get in Touch</h3>
                     <p>Interested in working together?</p>
-                    <a href="mailto:lester@lesterbarahona.com">lester@lesterbarahona.com</a>
+                    <a href="mailto:lestermiller26@gmail.com">lestermiller26@gmail.com</a>
                 </div>
             </div>
 
