@@ -35,8 +35,8 @@ get_header();
                         <div class="contact-card__content">
                             <h3>Email</h3>
                             <p>The best way to reach me for business inquiries</p>
-                            <a href="mailto:lester@lesterbarahona.com" class="contact-card__link">
-                                lester@lesterbarahona.com
+                            <a href="mailto:lestermiller26@gmail.com" class="contact-card__link">
+                                lestermiller26@gmail.com
                             </a>
                         </div>
                     </div>
@@ -65,8 +65,8 @@ get_header();
                         <div class="contact-card__content">
                             <h3>LinkedIn</h3>
                             <p>Connect with me professionally</p>
-                            <a href="https://linkedin.com/in/lesterbarahona" target="_blank" rel="noopener noreferrer" class="contact-card__link">
-                                linkedin.com/in/lesterbarahona
+                            <a href="https://www.linkedin.com/in/lester-barahona" target="_blank" rel="noopener noreferrer" class="contact-card__link">
+                                www.linkedin.com/in/lester-barahona
                             </a>
                         </div>
                     </div>
@@ -80,8 +80,8 @@ get_header();
                         <div class="contact-card__content">
                             <h3>Twitter / X</h3>
                             <p>Follow me for tech updates and thoughts</p>
-                            <a href="https://twitter.com/lesterbarahona" target="_blank" rel="noopener noreferrer" class="contact-card__link">
-                                @lesterbarahona
+                            <a href="https://x.com/lestermiller" target="_blank" rel="noopener noreferrer" class="contact-card__link">
+                                @lestermiller
                             </a>
                         </div>
                     </div>
