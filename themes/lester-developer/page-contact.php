@@ -35,8 +35,8 @@ get_header();
                         <div class="contact-card__content">
                             <h3>Email</h3>
                             <p>The best way to reach me for business inquiries</p>
-                            <a href="mailto:lester@lestermiller.com" class="contact-card__link">
-                                lester@lestermiller.com
+                            <a href="mailto:lestermiller26@gmail.com" class="contact-card__link">
+                                lestermiller26@gmail.com
                             </a>
                         </div>
                     </div>
