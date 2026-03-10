@@ -78,6 +78,7 @@ get_header();
             <!-- Certifications Section -->
             <section class="certifications-section" data-reveal>
                 <h2>Certifications</h2>
+                <p class="section-subtitle" style="margin-bottom: var(--space-lg); color: var(--color-text-secondary);">One piece of paper that says I know what I'm doing. The other 20 years are just vibes.</p>
                 <div class="certifications-grid">
                     <div class="certification-card">
                         <div class="certification-card__icon">
@@ -105,8 +106,8 @@ get_header();
 
         <div class="container container--narrow">
             <div class="about-cta" data-reveal>
-                <h2>Let's Connect</h2>
-                <p>Interested in working together? I'd love to hear from you.</p>
+                <h2>Let's build something.</h2>
+                <p>Or just talk about why your Kubernetes cluster is haunted.</p>
                 <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--primary btn--large">
                     Get in Touch
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
