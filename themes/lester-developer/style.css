@@ -2472,10 +2472,9 @@ pre code {
 }
 
 .error-404__links {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  justify-content: center;
   gap: var(--space-md);
-  max-width: 600px;
   margin: 0 auto var(--space-xl);
 }
 
