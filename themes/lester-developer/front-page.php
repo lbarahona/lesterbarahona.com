@@ -15,41 +15,36 @@ get_header();
             <div class="hero-content" data-reveal>
                 <div class="hero-badge">
                     <span class="hero-badge__dot"></span>
-                    <span>Available for consulting</span>
+                    <span>Open to projects</span>
                 </div>
                 <h1 class="hero-title">
-                    I build infrastructure<br>
-                    <mark>that just works.</mark>
+                    I keep things running<br>
+                    <mark>so you can sleep at night.</mark>
                 </h1>
                 <p class="hero-subtitle">
-                    Senior Site Reliability Engineer with 20 years of experience. I transform complex systems
-                    into reliable, automated infrastructure that scales effortlessly and lets your team focus
-                    on what matters.
+                    20 years of telling computers what to do (and watching them not listen). SRE, infrastructure nerd, occasional blogger. I automate everything, break some of it, and write about both. Based in Honduras, deployed globally.
                 </p>
                 <div class="hero-stats">
                     <div class="hero-stat">
-                        <span class="hero-stat__number">20+</span>
-                        <span class="hero-stat__label">Years Experience</span>
+                        <span class="hero-stat__label">20 years mass-producing YAML</span>
                     </div>
                     <div class="hero-stat">
-                        <span class="hero-stat__number">99.99%</span>
-                        <span class="hero-stat__label">Uptime Target</span>
+                        <span class="hero-stat__label">caffeine-to-uptime converter</span>
                     </div>
                     <div class="hero-stat">
-                        <span class="hero-stat__number">&infin;</span>
-                        <span class="hero-stat__label">Automation</span>
+                        <span class="hero-stat__label">if it can be automated, it will be</span>
                     </div>
                 </div>
                 <div class="hero-cta">
                     <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--primary btn--large">
-                        Let's Work Together
+                        Let's talk
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="5" y1="12" x2="19" y2="12"></line>
                             <polyline points="12 5 19 12 12 19"></polyline>
                         </svg>
                     </a>
-                    <a href="<?php echo esc_url(home_url('/about/')); ?>" class="btn btn--outline btn--large">
-                        Learn More About Me
+                    <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts'))); ?>" class="btn btn--outline btn--large">
+                        Read my stuff
                     </a>
                 </div>
             </div>
@@ -73,36 +68,9 @@ get_header();
     <!-- Services / What I Do Section -->
     <section class="services-section">
         <div class="container">
-            <h2 class="section-title--center" data-reveal>What I Do</h2>
-            <div class="services-grid">
-                <div class="service-card" data-reveal data-reveal-delay="100">
-                    <div class="service-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="service-card__title">Infrastructure & Cloud</h3>
-                    <p class="service-card__description">Design and manage cloud infrastructure on AWS, GCP, and Azure. Kubernetes orchestration, Terraform IaC, and cost optimization.</p>
-                </div>
-                <div class="service-card" data-reveal data-reveal-delay="200">
-                    <div class="service-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="3"></circle>
-                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="service-card__title">CI/CD & Automation</h3>
-                    <p class="service-card__description">Build deployment pipelines that ship reliably. GitHub Actions, Jenkins, automated testing, and zero-downtime deployments.</p>
-                </div>
-                <div class="service-card" data-reveal data-reveal-delay="300">
-                    <div class="service-card__icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="service-card__title">Reliability & Observability</h3>
-                    <p class="service-card__description">Implement SLOs, monitoring, alerting, and incident response. Prometheus, Grafana, and on-call best practices.</p>
-                </div>
+            <div class="services-simple" data-reveal>
+                <h2 class="services-simple__title">What I actually do</h2>
+                <p class="services-simple__content">I design cloud infrastructure, build deployment pipelines, and make sure things stay up. AWS, Kubernetes, Terraform, the usual suspects. I've spent the last decade automating myself out of boring work and into more interesting problems. Sometimes I write about it.</p>
             </div>
         </div>
     </section>
@@ -168,14 +136,14 @@ get_header();
     <section class="cta-section" data-reveal>
         <div class="container">
             <div class="cta-content">
-                <h2 class="cta-title">Ready to build something reliable?</h2>
-                <p class="cta-subtitle">Get notified when I publish new articles about infrastructure and reliability.</p>
+                <h2 class="cta-title">I write sometimes.</h2>
+                <p class="cta-subtitle">Mostly about infrastructure, automation, and the things that keep me up at night (besides my dogs). No spam, no "growth hacking" garbage. Just posts when I have something worth saying.</p>
                 <form class="newsletter-form" action="#" method="post">
-                    <input type="email" name="email" placeholder="you@company.com" required aria-label="Email address">
-                    <button type="submit" class="btn btn--primary">Subscribe</button>
+                    <input type="email" name="email" placeholder="your@email.com" required aria-label="Email address">
+                    <button type="submit" class="btn btn--primary">Sure, let me know</button>
                 </form>
                 <p class="cta-secondary-link">
-                    Or <a href="<?php echo esc_url(home_url('/contact/')); ?>">get in touch</a> to discuss a project.
+                    Or <a href="<?php echo esc_url(home_url('/contact/')); ?>">get in touch</a>.
                 </p>
             </div>
         </div>
