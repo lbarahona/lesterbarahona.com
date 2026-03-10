@@ -2163,6 +2163,37 @@ pre code {
   margin-bottom: 0;
 }
 
+/* Services Simple Layout (replaces card grid) */
+.services-simple {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  padding: var(--space-xl) var(--space-lg);
+  border-left: 4px solid var(--color-primary);
+}
+
+.services-simple__title {
+  font-family: var(--font-mono, 'JetBrains Mono', 'Fira Code', monospace);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text);
+}
+
+.services-simple__content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .services-simple {
+    padding: var(--space-lg) var(--space-md);
+    border-left-width: 3px;
+  }
+}
+
 /* ========================================
    Featured Work Section
    ======================================== */
@@ -2484,6 +2515,14 @@ pre code {
 
 .error-404__code--animated {
   animation: float-404 3s ease-in-out infinite;
+}
+
+.error-404__footer-text {
+  margin-top: var(--space-xl);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  text-align: center;
 }
 
 /* ========================================

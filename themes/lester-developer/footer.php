@@ -9,7 +9,7 @@
                             <?php bloginfo('name'); ?>
                         </a>
                     </h2>
-                    <p class="footer-tagline">Senior Site Reliability Engineer building infrastructure that just works.</p>
+                    <p class="footer-tagline">Built with Kubernetes, caffeine, and questionable life choices.</p>
                     <div class="footer-social">
                         <a href="https://github.com/lbarahona" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -57,7 +57,7 @@
 
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.
+                    &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.
                 </p>
             </div>
         </div>
