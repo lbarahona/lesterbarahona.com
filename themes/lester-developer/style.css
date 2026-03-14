@@ -1955,7 +1955,7 @@ mark {
 
 .services-grid--2 {
   grid-template-columns: repeat(2, 1fr);
-  max-width: 800px;
+  max-width: 720px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -2167,6 +2167,9 @@ mark {
 /* Wide package card (docs overhaul) */
 .package-card--wide {
   margin-top: var(--space-xl);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .package-card--wide__inner {
