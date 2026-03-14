@@ -128,8 +128,8 @@ get_header();
                 <h2 class="section-title--center">Packages</h2>
                 <p class="services-section-subtitle">Transparent pricing. No discovery calls just to see numbers.</p>
 
-                <div class="services-grid services-grid--2">
-                    <!-- Individual Pieces -->
+                <div class="services-grid services-grid--3">
+                    <!-- Blog Post -->
                     <div class="package-card">
                         <div class="package-card__header">
                             <h3>Blog Post</h3>
@@ -163,13 +163,30 @@ get_header();
                         </ul>
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--primary btn--full">Get Started</a>
                     </div>
+
+                    <!-- Documentation Overhaul -->
+                    <div class="package-card">
+                        <div class="package-card__header">
+                            <h3>Docs Overhaul</h3>
+                            <div class="package-card__price">$5,000<span>+</span></div>
+                            <p class="package-card__label">per project</p>
+                        </div>
+                        <ul class="package-card__features">
+                            <li>Full audit &amp; restructure</li>
+                            <li>API reference cleanup</li>
+                            <li>Quickstart &amp; getting started guides</li>
+                            <li>Style guide included</li>
+                            <li>Custom timeline</li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--outline btn--full">Get a Quote</a>
+                    </div>
                 </div>
 
                 <!-- Retainers -->
                 <h3 class="services-retainer-heading">Monthly Retainers</h3>
                 <p class="services-section-subtitle services-section-subtitle--small">Consistent output, dedicated writer, priority scheduling.</p>
 
-                <div class="services-grid services-grid--2">
+                <div class="services-grid services-grid--3">
                     <div class="package-card">
                         <div class="package-card__header">
                             <h3>Starter</h3>
@@ -179,10 +196,10 @@ get_header();
                         <ul class="package-card__features">
                             <li>4 posts per month</li>
                             <li>Dedicated writer</li>
-                            <li>Monthly content calendar session</li>
+                            <li>Monthly content calendar</li>
                             <li>Keyword research per piece</li>
                             <li>Priority scheduling</li>
-                            <li>Slack/email access to writer</li>
+                            <li>Slack/email access</li>
                         </ul>
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--outline btn--full">Let's Talk</a>
                     </div>
@@ -204,20 +221,22 @@ get_header();
                         </ul>
                         <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--primary btn--full">Let's Talk</a>
                     </div>
-                </div>
 
-                <!-- Doc Overhaul -->
-                <div class="package-card package-card--wide" data-reveal>
-                    <div class="package-card--wide__inner">
-                        <div>
-                            <h3>Documentation Overhaul</h3>
-                            <p>Full audit and rewrite of your developer docs. Structure, accuracy, DX, the works. Includes style guide, quickstart, and API reference cleanup.</p>
+                    <div class="package-card">
+                        <div class="package-card__header">
+                            <h3>Scale</h3>
+                            <div class="package-card__price">$7,000<span>+</span></div>
+                            <p class="package-card__label">per month</p>
                         </div>
-                        <div class="package-card--wide__cta">
-                            <div class="package-card__price">Custom</div>
-                            <p class="package-card__label">Starting at $5,000</p>
-                            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--outline">Get a Quote</a>
-                        </div>
+                        <ul class="package-card__features">
+                            <li>12+ posts per month</li>
+                            <li>Everything in Growth, plus:</li>
+                            <li>Dedicated content strategist</li>
+                            <li>Weekly strategy calls</li>
+                            <li>Quarterly content audit</li>
+                            <li>Distribution &amp; promotion support</li>
+                        </ul>
+                        <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn--outline btn--full">Let's Talk</a>
                     </div>
                 </div>
             </div>

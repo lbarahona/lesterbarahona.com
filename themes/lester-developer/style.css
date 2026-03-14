@@ -4,7 +4,7 @@ Theme URI: https://lesterbarahona.com
 Author: Lester Barahona
 Author URI: https://lesterbarahona.com
 Description: A modern, clean, minimalistic theme for SRE and DevOps content.
-Version: 3.0.1
+Version: 3.0.2
 Requires at least: 6.0
 Tested up to: 6.9
 Requires PHP: 8.0
@@ -1955,9 +1955,6 @@ mark {
 
 .services-grid--2 {
   grid-template-columns: repeat(2, 1fr);
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .services-grid--3 {
@@ -2167,9 +2164,6 @@ mark {
 /* Wide package card (docs overhaul) */
 .package-card--wide {
   margin-top: var(--space-xl);
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .package-card--wide__inner {
