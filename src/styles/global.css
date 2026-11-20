@@ -51,7 +51,7 @@ a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 0.
   position: fixed; inset: 0 0 auto 0; z-index: 40;
   display: flex; flex-wrap: wrap; gap: 4px 24px; align-items: center; justify-content: space-between;
   padding: 10px var(--gutter);
-  background: color-mix(in srgb, var(--sky) 88%, transparent);
+  background: color-mix(in srgb, var(--paper) 90%, transparent);
 }
 .site-header .name { font-family: var(--display); font-weight: 800; font-size: 1.125rem; text-decoration: none; padding: 10px 0; }
 .site-header nav { display: flex; gap: clamp(14px, 3vw, 28px); }
