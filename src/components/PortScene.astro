@@ -1,0 +1,179 @@
+---
+import { cargo, email } from '../data/site';
+const START = 0.14;
+const STEP = 0.14;
+---
+<section class="stage" data-stage aria-label="What I do">
+  <div class="scene">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect width="1600" height="900" fill="#CFEFF4" />
+      <circle class="sun" cx="1290" cy="170" r="74" fill="#FFD166" />
+      <path d="M0 520 L160 380 L330 470 L520 330 L700 460 L860 390 L1040 480 L1220 400 L1420 470 L1600 410 L1600 580 L0 580Z" fill="#8FCBC4" />
+      <path d="M0 560 L220 450 L420 520 L640 430 L900 540 L1180 470 L1600 540 L1600 600 L0 600Z" fill="#5FAFA8" />
+      <rect y="580" width="1600" height="320" fill="#0E7C86" />
+      <g class="waves" stroke="#5FC4CC" stroke-width="5" stroke-linecap="round" fill="none">
+        <path d="M60 660q30-18 60 0t60 0M520 720q30-18 60 0t60 0M980 680q30-18 60 0t60 0M1320 760q30-18 60 0t60 0M240 800q30-18 60 0t60 0M760 820q30-18 60 0t60 0" />
+      </g>
+      <g class="crane-fit">
+        <g class="crane">
+          <rect x="1150" y="560" width="450" height="60" fill="#D9C296" />
+          <rect x="1150" y="560" width="450" height="10" fill="#B89F6E" />
+          <path d="M1290 560 V190 M1350 560 V190 M1290 250 L1350 320 M1350 250 L1290 320 M1290 390 L1350 460 M1350 390 L1290 460" stroke="#F2B705" stroke-width="12" fill="none" />
+          <rect x="780" y="176" width="680" height="22" fill="#F2B705" stroke="#0B3C49" stroke-width="4" />
+          <path d="M1320 120 L820 180 M1320 120 L1440 180 M1320 196 V120" stroke="#0B3C49" stroke-width="4" fill="none" />
+          <rect x="1296" y="150" width="60" height="46" rx="4" fill="#FFFFFF" stroke="#0B3C49" stroke-width="4" />
+        </g>
+      </g>
+      <g class="ship-fit">
+        <g class="ship">
+          <path d="M300 520 H1000 L940 610 H350 Z" fill="#0B3C49" />
+          <path d="M318 548 H982 L972 564 H326 Z" fill="#FF6B4A" />
+          <rect x="320" y="400" width="92" height="120" rx="6" fill="#FFFFFF" stroke="#0B3C49" stroke-width="4" />
+          <rect x="334" y="416" width="64" height="18" rx="3" fill="#0B3C49" />
+          <rect x="334" y="446" width="64" height="12" rx="3" fill="#7CC6D6" />
+          <rect x="352" y="356" width="26" height="44" fill="#FF6B4A" stroke="#0B3C49" stroke-width="4" />
+          <text x="880" y="596" text-anchor="middle" font-size="22" font-weight="700" fill="#CFEFF4">LB 2003</text>
+          {cargo.map((c, i) => (
+            <g class="cont" style={`--s:${(START + i * STEP).toFixed(2)}`}>
+              <rect x={c.x} y={c.y} width="124" height="68" rx="3" fill={c.fill} stroke="#0B3C49" stroke-width="4" />
+              <path d={`M${c.x + 22} ${c.y + 8}v52M${c.x + 42} ${c.y + 8}v52M${c.x + 82} ${c.y + 8}v52M${c.x + 102} ${c.y + 8}v52`} stroke="#0B3C49" stroke-opacity=".18" stroke-width="3" />
+              <text x={c.x + 62} y={c.y + 41} text-anchor="middle" font-size="17" font-weight="700" fill={c.text}>{c.label}</text>
+            </g>
+          ))}
+        </g>
+      </g>
+    </svg>
+
+    <div class="panel hero" data-s="-1" data-e="0.10" style="--s:-1;--e:0.10">
+      <p class="who">Site reliability engineer</p>
+      <h1>I ship production, and I keep it afloat.</h1>
+      <p>More than 20 years in tech. I build Kubernetes platforms, and the AI agents that help run them. Scroll to load the ship.</p>
+      <div class="cta">
+        <a class="btn" href={`mailto:${email}`}>Email me</a>
+        <a class="btn ghost" href="#experience">See my experience</a>
+      </div>
+    </div>
+
+    {cargo.map((c, i) => {
+      const s = START + i * STEP;
+      const e = s + STEP - 0.02;
+      return (
+        <div class="panel" data-s={s.toFixed(2)} data-e={e.toFixed(2)} style={`--s:${s.toFixed(2)};--e:${e.toFixed(2)}`}>
+          <h2>{c.title}</h2>
+          <p>{c.body}</p>
+          <span class="count">Container {i + 1} of {cargo.length}</span>
+        </div>
+      );
+    })}
+
+    <div class="panel" data-s="0.86" data-e="2" style="--s:0.86;--e:2">
+      <h2>Loaded. Ready to sail.</h2>
+      <p>That's the cargo. The rest of the page is how it works and where it has been.</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stage { position: relative; height: 640vh; --p: 0; }
+  .scene { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #cfeff4; }
+  .scene > svg { position: absolute; inset: 0; width: 100%; height: 100%; font-family: var(--display); }
+  .panel {
+    position: absolute;
+    left: var(--gutter);
+    top: clamp(84px, 13vh, 150px);
+    max-width: min(560px, calc(100vw - 2 * var(--gutter)));
+    padding: 20px 24px;
+    margin: -20px -24px;
+    background: color-mix(in srgb, #cfeff4 86%, transparent);
+    --a: clamp(0, calc((var(--p) - var(--s)) / 0.03), 1);
+    --b: clamp(0, calc((var(--p) - var(--e)) / 0.03), 1);
+    opacity: calc(min(var(--a), 1 - var(--b)));
+    transform: translateY(calc((1 - var(--a)) * 24px - var(--b) * 24px));
+  }
+  .panel[inert] { pointer-events: none; }
+  .panel h1 { font-size: clamp(2.5rem, 6vw, 5.25rem); line-height: 1; margin-bottom: 16px; }
+  .panel h2 { font-size: clamp(2rem, 4.4vw, 3.75rem); line-height: 1.02; margin-bottom: 12px; }
+  .panel p { font-size: clamp(1.125rem, 1.6vw, 1.375rem); max-width: 30em; }
+  .who { font-family: var(--display); font-weight: 700; margin-bottom: 10px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+  .count { display: inline-block; margin-top: 14px; font-family: var(--display); font-weight: 700; background: var(--ink); color: var(--paper); padding: 4px 12px; }
+
+  .ship {
+    --in: clamp(0, calc(var(--p) / 0.12), 1);
+    --out: clamp(0, calc((var(--p) - 0.9) / 0.1), 1);
+    transform: translate(calc((var(--in) - 1) * 1000px + var(--out) * var(--out) * 1500px), calc(sin(var(--p) * 60) * 5px));
+  }
+  .cont {
+    --t: clamp(0, calc((var(--p) - var(--s)) / 0.09), 1);
+    opacity: min(1, calc(var(--t) * 4));
+    transform: translateY(calc((1 - var(--t)) * (1 - var(--t)) * -250px));
+  }
+  .sun { transform: translateY(calc(var(--p) * 120px)); }
+  .waves { animation: bob 4s ease-in-out infinite alternate; }
+  @keyframes bob { to { transform: translateX(24px); } }
+
+  /* Tall, narrow screens: the slice shows only the middle of the scene, so pull the ship and crane into it. */
+  @media (max-aspect-ratio: 4/5) {
+    .ship-fit { transform-origin: 650px 610px; transform: translate(135px, 60px) scale(0.5); }
+    .crane-fit { transform-origin: 1320px 560px; transform: translate(-330px, 60px) scale(0.6); }
+    .panel { top: 112px; }
+  }
+  @media (min-aspect-ratio: 4/5) and (max-aspect-ratio: 5/4) {
+    .ship-fit { transform-origin: 650px 610px; transform: translate(110px, 30px) scale(0.72); }
+    .crane-fit { transform-origin: 1320px 560px; transform: translate(-200px, 30px) scale(0.8); }
+  }
+
+  /* No motion: show the loaded ship once and list the cargo as plain text. */
+  @media (prefers-reduced-motion: reduce) {
+    .stage { height: auto; --p: 0.8 !important; }
+    .scene { position: relative; height: auto; overflow: visible; padding: 96px var(--gutter) 48px; display: grid; gap: 40px; }
+    .scene > svg { position: relative; inset: auto; height: 46vh; order: 2; }
+    .panel { position: static; opacity: 1; transform: none; margin: 0; padding: 0; background: none; max-width: 40em; }
+    .waves { animation: none; }
+  }
+</style>
+
+<noscript>
+  <style>
+    .stage { height: auto !important; --p: 0.8 !important; }
+    .scene { position: relative !important; height: auto !important; overflow: visible !important; padding: 96px var(--gutter) 48px; display: grid; gap: 40px; }
+    .scene > svg { position: relative !important; inset: auto !important; height: 46vh !important; order: 2; }
+    .panel { position: static !important; opacity: 1 !important; transform: none !important; margin: 0 !important; padding: 0 !important; background: none !important; }
+  </style>
+</noscript>
+
+<script>
+  const stage = document.querySelector<HTMLElement>('[data-stage]');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  if (stage) {
+    const panels = [...stage.querySelectorAll<HTMLElement>('.panel')];
+    let queued = false;
+    const update = () => {
+      queued = false;
+      if (reduce.matches) {
+        stage.style.removeProperty('--p');
+        panels.forEach((el) => (el.inert = false));
+        return;
+      }
+      const r = stage.getBoundingClientRect();
+      const total = r.height - innerHeight;
+      const p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 0;
+      stage.style.setProperty('--p', p.toFixed(4));
+      for (const el of panels) {
+        const s = Number(el.dataset.s);
+        const e = Number(el.dataset.e);
+        el.inert = p < s || p > e + 0.03;
+      }
+    };
+    const request = () => {
+      if (!queued) {
+        queued = true;
+        requestAnimationFrame(update);
+      }
+    };
+    addEventListener('scroll', request, { passive: true });
+    addEventListener('resize', request);
+    reduce.addEventListener('change', request);
+    update();
+  }
+</script>

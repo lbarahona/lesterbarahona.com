@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import PortScene from '../components/PortScene.astro';
+import { agents, clients, email, ports, posts, workedAt } from '../data/site';
+---
+<Base
+  title="Lester Barahona, site reliability engineer"
+  description="Senior SRE with more than 20 years in tech. Kubernetes platforms on AWS and Azure, and AI agents that take first response on the pager."
+>
+  <PortScene />
+
+  <section class="section">
+    <div class="wrap companies">
+      <p><strong>Worked at</strong> {workedAt}.</p>
+      <p><strong>Clients have included</strong> {clients}.</p>
+    </div>
+  </section>
+
+  <section class="section" id="agents">
+    <div class="wrap">
+      <h2>The newest cargo: agents that do SRE work</h2>
+      <p class="lede">These are working tools I use every day. They are read-only by default, they log their evidence, and they wait for my approval before anything changes.</p>
+      <div class="rows" style="margin-top: 36px">
+        {agents.map(([name, body]) => (
+          <div>
+            <span class="what"><strong>{name}</strong>{body}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="experience">
+    <div class="wrap">
+      <h2>Ports of call</h2>
+      <div class="rows">
+        {ports.map(([when, role, body]) => (
+          <div>
+            <span class="when">{when}</span>
+            <span class="what"><strong>{role}</strong>{body}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="writing">
+    <div class="wrap">
+      <h2>Ship's log</h2>
+      <div class="posts">
+        {posts.map(([title, date]) => (
+          <a href="#writing"><span>{title}</span><span>{date}</span></a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Need a hand on deck?</h2>
+      <p>I'm open to senior and staff SRE or platform roles, and to contract work. I reply within one business day.</p>
+      <a class="btn coral" href={`mailto:${email}`}>{email}</a>
+    </div>
+  </section>
+</Base>

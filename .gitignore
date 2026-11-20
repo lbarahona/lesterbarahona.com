@@ -35,3 +35,8 @@ license.txt
 # builds
 wordpress
 payload
+# Astro redesign
+node_modules/
+dist/
+.astro/
+.wrangler/

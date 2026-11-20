@@ -1,0 +1,48 @@
+---
+import '@fontsource-variable/gabarito';
+import '@fontsource-variable/hanken-grotesk';
+import '../styles/global.css';
+import { email } from '../data/site';
+
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#cfeff4" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="robots" content="noindex" />
+  </head>
+  <body>
+    <a class="skip" href="#contact">Skip to contact</a>
+    <header class="site-header">
+      <a class="name" href="/">Lester Barahona</a>
+      <nav aria-label="Main">
+        <a href="/#agents">Agents</a>
+        <a href="/#experience">Experience</a>
+        <a href="/#writing">Writing</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>Lester Barahona, San Pedro Sula, Honduras</span>
+        <a href={`mailto:${email}`}>{email}</a>
+      </div>
+    </footer>
+  </body>
+</html>
