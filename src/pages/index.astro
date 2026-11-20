@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
+import { Image } from 'astro:assets';
 import PortScene from '../components/PortScene.astro';
+import headshot from '../assets/headshot.jpeg';
 import { agents, clients, email, ports, posts, workedAt } from '../data/site';
 ---
 <Base
@@ -26,6 +28,17 @@ import { agents, clients, email, ports, posts, workedAt } from '../data/site';
             <span class="what"><strong>{name}</strong>{body}</span>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="wrap about">
+      <Image src={headshot} alt="Lester Barahona" width={300} height={400} class="portrait" />
+      <div>
+        <h2>Who's at the helm</h2>
+        <p class="lede">I'm Lester. I started as a graphic designer, spent eight years writing web applications, and have kept production running for the twelve years since. I work from San Pedro Sula, Honduras, in English and Spanish.</p>
+        <p class="lede" style="margin-top: 16px">Today I'm a senior systems engineer at Fueled, and I'm open to senior or staff SRE and platform roles, or contract work.</p>
       </div>
     </div>
   </section>
