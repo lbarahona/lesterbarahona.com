@@ -69,7 +69,13 @@ async function contact(request: Request, env: Env): Promise<Response> {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
-    const { pathname } = new URL(request.url);
+    const url = new URL(request.url);
+    // One address for the site: www redirects to the bare domain.
+    if (url.hostname === 'www.lesterbarahona.com') {
+      url.hostname = 'lesterbarahona.com';
+      return Response.redirect(url.toString(), 301);
+    }
+    const { pathname } = url;
     if (pathname === '/api/contact') {
       if (request.method !== 'POST') return new Response('Method not allowed', { status: 405, headers: { allow: 'POST' } });
       return contact(request, env);
