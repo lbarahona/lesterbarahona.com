@@ -79,3 +79,14 @@ a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 0.
 .about { display: flex; flex-wrap: wrap; gap: 32px 56px; align-items: center; }
 .about .portrait { flex: 0 0 auto; width: min(240px, 60vw); height: auto; border: 2px solid var(--ink); }
 .about > div { flex: 1 1 420px; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 40px 64px; align-items: start; }
+.contact a { color: #fff; }
+.contact-form { display: grid; gap: 8px; }
+.contact-form label { font-family: var(--display); font-weight: 700; margin-top: 10px; }
+.contact-form input, .contact-form textarea { font: inherit; color: var(--ink); background: #fff; border: 2px solid var(--ink); border-radius: 0; padding: 12px 14px; width: 100%; }
+.contact-form textarea { resize: vertical; min-height: 140px; }
+.contact-form input:focus-visible, .contact-form textarea:focus-visible { outline: 3px solid var(--coral); outline-offset: 2px; }
+.contact-form button { margin-top: 16px; justify-self: start; cursor: pointer; }
+.contact-form button:disabled { opacity: 0.7; cursor: progress; }
+.contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-status { min-height: 1.6em; margin: 8px 0 0; font-weight: 700; font-size: 1.0625rem; }

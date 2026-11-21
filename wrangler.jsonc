@@ -1,10 +1,18 @@
 {
-  // Preview Worker for the redesign. Serves the static Astro build from ./dist.
+  // Preview Worker for the redesign. Serves the static Astro build from ./dist
+  // and handles the contact form at /api/contact.
   // The production name and custom-domain route are added at launch.
   "name": "lesterbarahona-preview",
+  "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
   "assets": {
     "directory": "./dist",
-    "not_found_handling": "404-page"
-  }
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/api/*"]
+  },
+  // Contact-form mail can only go to this one verified address.
+  "send_email": [
+    { "name": "EMAIL", "destination_address": "lestermiller26@gmail.com" }
+  ]
 }

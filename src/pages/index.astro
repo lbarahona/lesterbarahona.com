@@ -73,10 +73,55 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
   </section>
 
   <section class="contact" id="contact">
-    <div class="wrap">
-      <h2>Need a hand on deck?</h2>
-      <p>I'm open to senior and staff SRE or platform roles, and to contract work. I reply within one business day.</p>
-      <a class="btn coral" href={`mailto:${email}`}>{email}</a>
+    <div class="wrap contact-grid">
+      <div>
+        <h2>Need a hand on deck?</h2>
+        <p>I'm open to senior and staff SRE or platform roles, and to contract work. I reply within one business day.</p>
+        <p>Prefer email? <a href={`mailto:${email}`}>{email}</a></p>
+      </div>
+      <form class="contact-form" action="/api/contact" method="post">
+        <label for="cf-name">Your name</label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="120" />
+        <label for="cf-email">Your email</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="200" />
+        <label for="cf-message">What do you need?</label>
+        <textarea id="cf-message" name="message" rows="6" required maxlength="5000"></textarea>
+        <div class="hp" aria-hidden="true">
+          <label for="cf-company">Company (leave this empty)</label>
+          <input id="cf-company" name="company" type="text" tabindex="-1" autocomplete="off" />
+        </div>
+        <button class="btn coral" type="submit">Send message</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </form>
     </div>
   </section>
+
+  <script>
+    const form = document.querySelector<HTMLFormElement>('.contact-form');
+    const status = form?.querySelector<HTMLElement>('.form-status');
+    const button = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (form && status && button) {
+      // Outcome of a plain (no-JavaScript-path) form post, passed back in the address.
+      const outcome = new URLSearchParams(location.search).get('contact');
+      if (outcome === 'sent') status.textContent = 'Sent. I reply within one business day.';
+      if (outcome === 'error') status.textContent = 'The message could not be sent. Check the fields and try again.';
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        button.disabled = true;
+        button.textContent = 'Sending';
+        status.textContent = '';
+        try {
+          const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } });
+          const data = (await res.json()) as { ok: boolean; message: string };
+          status.textContent = data.message;
+          if (data.ok) form.reset();
+        } catch {
+          status.textContent = 'The message could not be sent. Check your connection and try again.';
+        }
+        button.disabled = false;
+        button.textContent = 'Send message';
+      });
+    }
+  </script>
 </Base>
