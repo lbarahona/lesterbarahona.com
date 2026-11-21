@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import { email } from '../data/site';
+import { earlier, education, roles, skills, summary } from '../data/cv';
+---
+<Base title="CV | Lester Barahona" description="CV of Lester Barahona, senior site reliability engineer: Kubernetes platforms on AWS and Azure, incident response, and AI agents for SRE.">
+  <article class="cv">
+    <header>
+      <h1>Lester Barahona</h1>
+      <p class="role">Senior Site Reliability Engineer</p>
+      <p class="contact-line">
+        San Pedro Sula, Honduras (UTC−6) <span aria-hidden="true">|</span>
+        <a href={`mailto:${email}`}>{email}</a> <span aria-hidden="true">|</span>
+        <a href="https://lesterbarahona.com">lesterbarahona.com</a> <span aria-hidden="true">|</span>
+        <a href="https://www.linkedin.com/in/lester-barahona/">linkedin.com/in/lester-barahona</a>
+      </p>
+      <p class="actions"><a class="btn" href="/lester-barahona-cv.pdf" download>Download as PDF</a></p>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>{summary}</p>
+      <p>Open to senior and staff SRE or platform roles, remote, and to contract work. Spanish (native), English (fluent).</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      {roles.map((r) => (
+        <div class="job">
+          <div class="job-head">
+            <h3>{r.title}, {r.company}</h3>
+            <p class="dates">{r.dates}</p>
+          </div>
+          {r.note && <p class="note">{r.note}</p>}
+          <ul>{r.points.map((p) => <li>{p}</li>)}</ul>
+        </div>
+      ))}
+      <div class="job">
+        <h3>Earlier and alongside</h3>
+        <ul>{earlier.map((e) => <li>{e}</li>)}</ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <dl class="skills">
+        {skills.map(([k, v]) => (<><dt>{k}</dt><dd>{v}</dd></>))}
+      </dl>
+    </section>
+
+    <section>
+      <h2>Certification and education</h2>
+      <ul>{education.map((e) => <li>{e}</li>)}</ul>
+    </section>
+  </article>
+</Base>
+
+<style is:global>
+  .cv { max-width: 50rem; margin: 0 auto; padding: 132px clamp(20px, 5vw, 40px) 96px; font-size: 1.0625rem; line-height: 1.55; }
+  .cv h1 { font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; }
+  .cv .role { font-family: var(--display); font-weight: 700; font-size: 1.375rem; margin-top: 8px; }
+  .cv .contact-line { margin-top: 12px; }
+  .cv .contact-line span { margin: 0 6px; opacity: 0.5; }
+  .cv .actions { margin-top: 24px; }
+  .cv section { margin-top: 48px; }
+  .cv h2 { font-size: 1.5rem; padding-bottom: 8px; border-bottom: 2px solid var(--ink); margin-bottom: 16px; }
+  .cv section > p + p { margin-top: 10px; }
+  .cv .job { margin-top: 26px; break-inside: avoid; }
+  .cv .job:first-of-type { margin-top: 0; }
+  .cv .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 24px; align-items: baseline; }
+  .cv h3 { font-size: 1.1875rem; letter-spacing: -0.01em; }
+  .cv .dates { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .cv .note { font-size: 1rem; margin-top: 2px; }
+  .cv ul { margin: 8px 0 0; padding-left: 1.2em; }
+  .cv li + li { margin-top: 4px; }
+  .cv .skills { display: grid; grid-template-columns: minmax(9em, auto) 1fr; gap: 6px 24px; margin: 0; }
+  .cv .skills dt { font-weight: 700; }
+  .cv .skills dd { margin: 0; }
+  @media (max-width: 560px) { .cv .skills { grid-template-columns: 1fr; gap: 0; } .cv .skills dd { margin-bottom: 8px; } }
+
+  @page { size: A4; margin: 14mm 15mm; }
+  @media print {
+    .site-header, .site-footer, .skip, .cv .actions { display: none !important; }
+    body { background: #fff; color: #000; font-size: 9.6pt; }
+    .cv { max-width: none; padding: 0; font-size: 9.6pt; line-height: 1.38; }
+    .cv a { color: #000; text-decoration: none; }
+    .cv h1 { font-size: 23pt; }
+    .cv .role { font-size: 12pt; margin-top: 3pt; }
+    .cv .contact-line { margin-top: 5pt; }
+    .cv section { margin-top: 12pt; }
+    .cv h2 { font-size: 11.5pt; padding-bottom: 2pt; margin-bottom: 6pt; border-bottom: 1pt solid #000; }
+    .cv h3 { font-size: 10.2pt; }
+    .cv .job { margin-top: 9pt; }
+    .cv .note { font-size: 9pt; }
+    .cv ul { margin-top: 3pt; }
+    .cv li + li { margin-top: 1.5pt; }
+    .cv .skills { gap: 2pt 16pt; }
+    .cv section:not(:nth-of-type(2)) { break-inside: avoid; }
+    .cv h2 { break-after: avoid; }
+  }
+</style>
