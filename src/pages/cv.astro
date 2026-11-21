@@ -76,6 +76,12 @@ import { earlier, education, roles, skills, summary } from '../data/cv';
   .cv .skills { display: grid; grid-template-columns: minmax(9em, auto) 1fr; gap: 6px 24px; margin: 0; }
   .cv .skills dt { font-weight: 700; }
   .cv .skills dd { margin: 0; }
+  @media (max-width: 560px) {
+    .cv { padding-top: 96px; }
+    .cv .contact-line span { display: none; }
+    .cv .contact-line a { display: block; padding: 6px 0; }
+    .cv .job-head { display: block; }
+  }
   @media (max-width: 560px) { .cv .skills { grid-template-columns: 1fr; gap: 0; } .cv .skills dd { margin-bottom: 8px; } }
 
   @page { size: A4; margin: 14mm 15mm; }
