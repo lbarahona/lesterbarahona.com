@@ -57,7 +57,7 @@ export const agents = [
   ['An evidence ledger', 'Every number in a report traces to a command run in that session.'],
   ['A guard on destructive commands', 'Deletes, drops and CDN writes stop and ask first. The guard has its own tests.'],
   ['Fleet health sweeps', 'One read-only agent per client environment, run side by side, one table back.'],
-  ['A second opinion', "Other vendors' models review plans and root-cause write-ups before anything runs."],
+  ['A second opinion', "Other vendors’ models review plans and root-cause write-ups before anything runs."],
 ];
 
 export const ports = [

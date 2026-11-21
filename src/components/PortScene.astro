@@ -69,13 +69,27 @@ const STEP = 0.14;
 
     <div class="panel" data-s="0.86" data-e="2" style="--s:0.86;--e:2">
       <h2>Loaded. Ready to sail.</h2>
-      <p>That's the cargo. The rest of the page is how it works and where it has been.</p>
+      <p>That’s the cargo. The rest of the page is how it works and where it has been.</p>
     </div>
   </div>
 </section>
 
+<style is:global>
+  /* --p is the scroll progress through the scene, 0 to 1. Registered so it can be animated. */
+  @property --p { syntax: '<number>'; inherits: true; initial-value: 0; }
+</style>
+
 <style>
   .stage { position: relative; height: 640vh; --p: 0; }
+  /* Where the browser supports scroll-driven animations, CSS drives --p with no script. */
+  @supports ((animation-timeline: view()) and (animation-range: 0% 100%)) {
+    @media (prefers-reduced-motion: no-preference) {
+      .stage { animation: stage-progress linear both; }
+      /* Kept in its own rule: a minifier that folds the timeline into the shorthand makes the whole declaration invalid. */
+      .stage[data-stage] { animation-timeline: view(); animation-range: contain 0% contain 100%; }
+    }
+  }
+  @keyframes stage-progress { from { --p: 0; } to { --p: 1; } }
   .scene { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; background: #8fc7dc; }
   .scene > svg { position: absolute; inset: 0; width: 100%; height: 100%; font-family: var(--display); }
   .panel {
@@ -143,6 +157,8 @@ const STEP = 0.14;
 <script>
   const stage = document.querySelector<HTMLElement>('[data-stage]');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  // Browsers with scroll-driven animations get --p from CSS. Others get it from this script.
+  const native = CSS.supports('(animation-timeline: view()) and (animation-range: 0% 100%)');
   if (stage) {
     const panels = [...stage.querySelectorAll<HTMLElement>('.panel')];
     let queued = false;
@@ -156,7 +172,8 @@ const STEP = 0.14;
       const r = stage.getBoundingClientRect();
       const total = r.height - innerHeight;
       const p = total > 0 ? Math.min(1, Math.max(0, -r.top / total)) : 0;
-      stage.style.setProperty('--p', p.toFixed(4));
+      if (!native) stage.style.setProperty('--p', p.toFixed(4));
+      // Faded-out panels must not take clicks or keyboard focus.
       for (const el of panels) {
         const s = Number(el.dataset.s);
         const e = Number(el.dataset.e);
@@ -175,3 +192,4 @@ const STEP = 0.14;
     update();
   }
 </script>
+

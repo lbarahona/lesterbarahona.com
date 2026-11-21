@@ -11,7 +11,7 @@ export const roles = [
     points: [
       'Run infrastructure, security and on-call for client sites, including Microsoft, Google, Meta, Starbucks, T-Mobile, TripAdvisor, Jefferies, InvestorPlace and the California DMV.',
       'Designed and built Kubernetes clusters on EKS and AKS with Terraform, with GitOps delivery through Flux CD, Argo CD and GitHub Actions.',
-      "Designed and built the company's first internal developer platform, giving engineers self-service actions across development and staging environments.",
+      "Designed and built the company’s first internal developer platform, giving engineers self-service actions across development and staging environments.",
       'Built remote development environments on AWS for clients that do not allow their code on engineer laptops.',
       'Upgraded the Terraform, Ansible and Helm configuration behind the ElasticPress service, covering external-dns, cert-manager, Redis, cluster autoscaling, logging and ingress.',
       'Built AI agent tooling for SRE work: an on-call responder with three trust levels, read-only fleet health sweeps, an evidence ledger for investigations, a guard that stops destructive commands, and plan reviews by models from other vendors.',

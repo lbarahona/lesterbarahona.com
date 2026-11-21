@@ -40,9 +40,9 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
     <div class="wrap about">
       <Image src={headshot} alt="Lester Barahona" width={300} height={400} class="portrait" />
       <div>
-        <h2>Who's at the helm</h2>
-        <p class="lede">I'm Lester. I started as a graphic designer, spent eight years writing web applications, and have kept production running for the twelve years since. I work from San Pedro Sula, Honduras, in English and Spanish.</p>
-        <p class="lede" style="margin-top: 16px">Today I'm a senior systems engineer at Fueled, and I'm open to senior or staff SRE and platform roles, or contract work.</p>
+        <h2>Who’s at the helm</h2>
+        <p class="lede">I’m Lester. I started as a graphic designer, spent eight years writing web applications, and have kept production running for the twelve years since. I work from San Pedro Sula, Honduras, in English and Spanish.</p>
+        <p class="lede" style="margin-top: 16px">Today I’m a senior systems engineer at Fueled, and I’m open to senior or staff SRE and platform roles, or contract work.</p>
       </div>
     </div>
   </section>
@@ -64,7 +64,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
 
   <section class="section" id="writing">
     <div class="wrap">
-      <h2>Ship's log</h2>
+      <h2>Ship’s log</h2>
       <div class="posts">
         {posts.map((post) => (
           <a href={`/${post.id}/`}><span>{post.data.title}</span><span>{fmt(post.data.date)}</span></a>
@@ -77,14 +77,14 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
     <div class="wrap contact-grid">
       <div>
         <h2>Need a hand on deck?</h2>
-        <p>I'm open to senior and staff SRE or platform roles, and to contract work. I reply within one business day.</p>
+        <p>I’m open to senior and staff SRE or platform roles, and to contract work. I reply within one business day.</p>
         <p>Prefer email? <a href={`mailto:${email}`}>{email}</a></p>
       </div>
       <form class="contact-form" action="/api/contact" method="post">
         <label for="cf-name">Your name</label>
         <input id="cf-name" name="name" type="text" autocomplete="name" required maxlength="120" />
         <label for="cf-email">Your email</label>
-        <input id="cf-email" name="email" type="email" autocomplete="email" required maxlength="200" />
+        <input id="cf-email" name="email" type="email" autocomplete="email" spellcheck="false" required maxlength="200" />
         <label for="cf-message">What do you need?</label>
         <textarea id="cf-message" name="message" rows="6" required maxlength="5000"></textarea>
         <div class="hp" aria-hidden="true">
@@ -110,7 +110,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
         button.disabled = true;
-        button.textContent = 'Sending';
+        button.textContent = 'Sending…';
         status.textContent = '';
         try {
           const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { accept: 'application/json' } });

@@ -4,8 +4,10 @@ import '@fontsource-variable/hanken-grotesk';
 import '../styles/global.css';
 import { email } from '../data/site';
 
-interface Props { title: string; description: string; }
-const { title, description } = Astro.props;
+interface Props { title: string; description: string; preloadImage?: string; }
+const { title, description, preloadImage } = Astro.props;
+// Only the production build is indexable; previews stay out of search engines.
+const indexable = import.meta.env.PUBLIC_SITE_MODE === 'production';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 ---
 <!doctype html>
@@ -22,10 +24,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <meta name="robots" content="noindex" />
+    {!indexable && <meta name="robots" content="noindex" />}
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    {preloadImage && <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />}
+    <script type="speculationrules" is:inline set:html={JSON.stringify({
+      prefetch: [{ where: { and: [{ href_matches: '/*' }, { not: { href_matches: '/api/*' } }, { not: { href_matches: '/*.pdf' } }] }, eagerness: 'moderate' }],
+    })} />
   </head>
   <body>
-    <a class="skip" href="#contact">Skip to contact</a>
+    <a class="skip" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="name" href="/">Lester Barahona</a>
       <nav aria-label="Main">
@@ -36,7 +43,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <a href="/#contact">Contact</a>
       </nav>
     </header>
-    <main>
+    <main id="main">
       <slot />
     </main>
     <footer class="site-footer">

@@ -13,7 +13,10 @@
   --gutter: clamp(20px, 6vw, 96px);
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--sea) var(--sky); }
+html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--sea) var(--sky); scroll-padding-top: 88px; }
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+}
 body {
   margin: 0;
   background: var(--paper);
@@ -21,6 +24,8 @@ body {
   font-family: var(--body);
   font-size: 1.125rem;
   line-height: 1.55;
+  /* Keeps the fallback font the same visual size while the web fonts load. */
+  font-size-adjust: from-font;
 }
 ::selection { background: var(--coral); color: var(--on-coral); }
 h1, h2, h3 { font-family: var(--display); font-weight: 800; letter-spacing: -0.02em; text-wrap: balance; margin: 0; }
@@ -41,6 +46,7 @@ a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 0.
   color: var(--paper);
   border: 2px solid var(--ink);
   transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+  touch-action: manipulation;
 }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(1px); }
@@ -50,7 +56,7 @@ a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 0.
 .site-header {
   position: fixed; inset: 0 0 auto 0; z-index: 40;
   display: flex; flex-wrap: wrap; gap: 4px 24px; align-items: center; justify-content: space-between;
-  padding: 10px var(--gutter);
+  padding: 10px max(var(--gutter), env(safe-area-inset-right)) 10px max(var(--gutter), env(safe-area-inset-left));
   background: color-mix(in srgb, var(--paper) 90%, transparent);
 }
 .site-header .name { font-family: var(--display); font-weight: 800; font-size: 1.125rem; text-decoration: none; padding: 10px 0; }
@@ -69,7 +75,7 @@ a { color: inherit; text-underline-offset: 0.18em; text-decoration-thickness: 0.
 .rows .what { flex: 1 1 420px; max-width: 40em; }
 .rows .what strong { display: block; font-family: var(--display); font-size: 1.25rem; }
 .posts a { display: flex; flex-wrap: wrap; gap: 4px 28px; justify-content: space-between; align-items: baseline; padding: 20px 0; border-top: 2px solid var(--ink); text-decoration: none; }
-.posts a span:first-child { font-family: var(--display); font-weight: 700; font-size: clamp(1.25rem, 2.4vw, 1.625rem); line-height: 1.25; max-width: 30em; }
+.posts a span:first-child { font-family: var(--display); font-weight: 700; font-size: clamp(1.25rem, 2.4vw, 1.625rem); line-height: 1.3; max-width: 30em; }
 .posts a:hover span:first-child { text-decoration: underline; }
 .contact { margin-top: clamp(72px, 10vw, 120px); background: var(--sea); color: #fff; padding: clamp(56px, 8vw, 96px) 0; }
 .contact h2 { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1; margin-bottom: 16px; }
