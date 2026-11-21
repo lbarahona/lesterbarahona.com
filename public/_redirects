@@ -1,0 +1,16 @@
+/about/ /#about 301
+/about /#about 301
+/contact/ /#contact 301
+/contact /#contact 301
+/services/ /#contact 301
+/services /#contact 301
+/works/ /#experience 301
+/works /#experience 301
+/home/ / 301
+/home / 301
+/category/* /blog/ 301
+/tag/* /blog/ 301
+/author/* / 301
+/feed/ /rss.xml 301
+/feed /rss.xml 301
+/comments/feed/ /rss.xml 301

@@ -1,8 +1,9 @@
 {
-  // Preview Worker for the redesign. Serves the static Astro build from ./dist
-  // and handles the contact form at /api/contact.
-  // The production name and custom-domain route are added at launch.
-  "name": "lesterbarahona-preview",
+  // Production Worker for lesterbarahona.com. Serves the static Astro build from
+  // ./dist and handles the contact form at /api/contact.
+  // The custom domains are attached in the Cloudflare dashboard, not here, so a
+  // deploy can never move DNS on its own.
+  "name": "lesterbarahona-com",
   "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
   "assets": {
@@ -14,5 +15,14 @@
   // Contact-form mail can only go to this one verified address.
   "send_email": [
     { "name": "EMAIL", "destination_address": "lestermiller26@gmail.com" }
-  ]
+  ],
+  "env": {
+    // Preview Worker: every branch other than main deploys here.
+    "preview": {
+      "name": "lesterbarahona-preview",
+      "send_email": [
+        { "name": "EMAIL", "destination_address": "lestermiller26@gmail.com" }
+      ]
+    }
+  }
 }
