@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { email } from '../data/site';
-import { earlier, education, roles, skills, summary } from '../data/cv';
+import { agentWork, earlier, education, roles, skills, summary } from '../data/cv';
 ---
 <Base title="CV | Lester Barahona" description="CV of Lester Barahona, senior site reliability engineer: Kubernetes platforms on AWS and Azure, incident response, and AI agents for SRE.">
   <article class="cv">
@@ -21,6 +21,12 @@ import { earlier, education, roles, skills, summary } from '../data/cv';
       <h2>Summary</h2>
       <p>{summary}</p>
       <p>Open to senior and staff SRE or platform roles, remote, and to contract work. Spanish (native), English (fluent).</p>
+    </section>
+
+    <section>
+      <h2>AI agents for SRE</h2>
+      <p>{agentWork.intro}</p>
+      <ul>{agentWork.points.map((p) => <li>{p}</li>)}</ul>
     </section>
 
     <section>
@@ -101,7 +107,7 @@ import { earlier, education, roles, skills, summary } from '../data/cv';
     .cv ul { margin-top: 3pt; }
     .cv li + li { margin-top: 1.5pt; }
     .cv .skills { gap: 2pt 16pt; }
-    .cv section:not(:nth-of-type(2)) { break-inside: avoid; }
+    .cv section:not(:nth-of-type(3)) { break-inside: avoid; }
     .cv h2 { break-after: avoid; }
   }
 </style>

@@ -14,7 +14,6 @@ export const roles = [
       "Designed and built the company’s first internal developer platform, giving engineers self-service actions across development and staging environments.",
       'Built remote development environments on AWS for clients that do not allow their code on engineer laptops.',
       'Upgraded the Terraform, Ansible and Helm configuration behind the ElasticPress service, covering external-dns, cert-manager, Redis, cluster autoscaling, logging and ingress.',
-      'Built AI agent tooling for SRE work: an on-call responder with three trust levels, read-only fleet health sweeps, an evidence ledger for investigations, a guard that stops destructive commands, and plan reviews by models from other vendors.',
     ],
   },
   {
@@ -40,7 +39,7 @@ export const roles = [
     ],
   },
   {
-    company: 'Sandals Resorts',
+    company: 'San Services (Sandals Resorts)',
     title: 'Web Applications Developer',
     dates: 'June 2008 to December 2013',
     points: [
@@ -51,9 +50,21 @@ export const roles = [
   },
 ];
 
+export const agentWork = {
+  intro:
+    'Tools I built for my own SRE work and use every day. They are read-only by default, log their evidence, and wait for my approval before anything changes.',
+  points: [
+    'On-call responder: groups related pages into one case and investigates read-only. Three trust levels (shadow, agents, live), raised only by typed confirmation.',
+    'Evidence ledger: every number or live-state claim in a report traces to a command run in that session.',
+    'Destructive-command guard: deletes, drops and CDN writes stop and ask first. The guard has its own tests.',
+    'Fleet health sweeps: one read-only agent per client environment, run side by side, one table back.',
+    'Cross-model review: plans and root-cause write-ups are reviewed by models from other vendors before anything runs.',
+    'Argus (past project): an open-source CLI in Go that queries SigNoz, Prometheus, Grafana, Alertmanager and Loki and uses AI to help investigate incidents from the terminal.',
+  ],
+};
+
 export const earlier = [
   'Co-founder and software architect, Fluky Factory (2013 to 2022)',
-  'Code reviewer, Udacity (2015 to 2022)',
   'Graphic designer and print department manager, Grupo Carrion (2003 to 2008)',
 ];
 
@@ -70,7 +81,7 @@ export const skills = [
 
 export const education = [
   'AWS Certified Solutions Architect',
-  'Computer Science, Universidad Cristiana de Honduras (UCRISH)',
+  'Computer Engineering, Universidad Cristiana de Honduras (UCRISH)',
   'Cloud DevOps Engineer Nanodegree, Udacity (2019)',
   'React Nanodegree, Udacity (2018)',
 ];

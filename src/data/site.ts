@@ -1,6 +1,6 @@
 export const email = 'lester@lesterbarahona.com';
 
-export const workedAt = 'Pinterest and Sandals Resorts';
+export const workedAt = 'Pinterest and San Services (Sandals Resorts)';
 export const clients =
   'Microsoft, Google, Meta, Starbucks, T-Mobile, TripAdvisor, Jefferies, InvestorPlace and the California DMV';
 
@@ -58,13 +58,14 @@ export const agents = [
   ['A guard on destructive commands', 'Deletes, drops and CDN writes stop and ask first. The guard has its own tests.'],
   ['Fleet health sweeps', 'One read-only agent per client environment, run side by side, one table back.'],
   ['A second opinion', "Other vendors’ models review plans and root-cause write-ups before anything runs."],
+  ['Before the agents: Argus', 'A past project. An open-source CLI I wrote in Go that queries SigNoz, Prometheus, Grafana, Alertmanager and Loki, and uses AI to help investigate an incident from the terminal.'],
 ];
 
 export const ports = [
   ['2022 to today', 'Senior systems engineer, Fueled and 10up', 'Platforms and on-call for client sites.'],
   ['2020', 'Traffic engineer, Pinterest', 'Moved a fleet of 800 applications to an Envoy service mesh.'],
   ['2014 to 2021', 'SRE manager, San Services', 'Reliability for Sandals Resorts: containers, CI/CD and PCI compliance.'],
-  ['2008 to 2013', 'Web applications developer, Sandals Resorts', 'High-availability booking sites and APIs.'],
+  ['2008 to 2013', 'Web applications developer, San Services', 'High-availability booking sites and APIs for Sandals Resorts.'],
   ['2003 to 2008', 'Graphic designer, Grupo Carrion', 'Ran the design and print department.'],
 ];
 
